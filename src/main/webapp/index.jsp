@@ -8,10 +8,10 @@
 <script src="https://kit.fontawesome.com/8b8b86760e.js" crossorigin="anonymous"></script>
 <body>
 	<div class="container-fluid">
-	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+	<nav class="navbar navbar-expand-lg bg-body-tertiary color">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="medicalsymbol.jpg" alt="medicalsymbol" width="60" height="80" class="d-inline-block align-text-top">
+      <img src="caduceus-symbol.png" alt="medicalsymbol" width="60" height="80" class="d-inline-block align-text-top">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@
 <!-- underneath I will place cards such as How to benefit from service, medicines, appointments, Diagnostic Imaging, Lab tests -->
 	<div class="card-container">
 	<div class="card" style="width: 18rem;">
-  <i class="fa-solid fa-hospital" style="color: #511f44;"></i>
+  <i class="fa-solid fa-hospital"></i>
   <div class="card-body">
     <h5 class="card-title">Benefits</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -84,6 +84,38 @@
   </div>
 </div>
 
+		<div class="card" style="width: 18rem;">
+ 	<i class="fa-solid fa-house-medical"></i>
+  <div class="card-body">
+    <h5 class="card-title">Merchandise</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
+</div>
+
+
+<div class="footer-container">
+	<div class="vl">
+		<img src="caduceus-symbol.png" alt="medicalsymbol" width="60" height="80" class="d-inline-block align-text-top">
+		<span>PRECIS MEDICAL</span>
+	</div>
+	
+	<div class="vl">
+		<a class="bl" href="#">Us</a>
+		<a class="bl" href="#">Afiliates</a>
+		<a class="bl" href="#">Contact us</a>
+	</div>
+	
+	
+	<div class="vl">
+		<a class="bl" href="#">Join us</a>
+		<a class="bl" href="#">Transparency law</a>
+		<a class="bl" href="#">Our mission</a>
+		<a class="bl" href="#">Our vision</a>
+	</div>
 
 </div>
 
