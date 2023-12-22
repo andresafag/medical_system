@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,7 +48,6 @@ public class MainController {
 
 	@GetMapping("/")
 	public String home() {
-		System.out.println("hola carnales");
 		return "home";
 	}
 	
@@ -56,9 +56,29 @@ public class MainController {
 		return "benefits";
 	}
 	
-	@GetMapping("/inde")
-	public String inde() {
-		return "inde";
+	@GetMapping("/medicines")
+	public String medicines() {
+		return "medicines";
+	}
+	
+	@GetMapping("/appointments")
+	public String appointments() {
+		return "appointments";
+	}
+	
+	@GetMapping("/labs")
+	public String labs() {
+		return "lab";
+	}
+	
+	@GetMapping("/imaging")
+	public String imaging() {
+		return "imaging";
+	}
+	
+	@GetMapping("/merchandise")
+	public String merchandise() {
+		return "merchandise";
 	}
 
 }
