@@ -16,8 +16,10 @@
 
 	<div class="appointments-box">
 		<div class="check-appointment">
-			<form action="check-appointment">
-				
+			<form action="check-appointment" method="POST">
+				<label for="appointment">Type in your appointment number</label>
+				<input id="appointment" type="text" name="appointment">
+				<button type="submit">Check appointment</button>
 			</form>
 		</div>
 		
