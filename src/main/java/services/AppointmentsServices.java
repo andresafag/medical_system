@@ -1,12 +1,14 @@
 package services;
 
+import java.util.Map;
+
 import dao.Dao;
 
 public class AppointmentsServices {
 	
-	public boolean checkAppointment(String id) {
-		int idInt = Integer.parseInt(id);
+	public Map<String,Object> checkAppointment(String id) {
+		Long idLong = Long.parseLong(id);
 		Dao dao =  new Dao();
-		return dao.appointmentById(idInt);
+		return dao.appointmentById(idLong);
 	}
 }

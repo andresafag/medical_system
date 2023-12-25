@@ -11,13 +11,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import services.AppointmentsServices;
+import services.LabServices;
 
 
 @Controller
 public class MainController {
 	
-	
-	//Get requests
+	//Get requests ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	@GetMapping("/")
 	public String home() {
@@ -29,10 +29,6 @@ public class MainController {
 		return "benefits";
 	}
 	
-	@GetMapping("/medicines")
-	public String medicines() {
-		return "medicines";
-	}
 	
 	@GetMapping("/appointments")
 	public String appointments() {
@@ -49,38 +45,96 @@ public class MainController {
 		return "imaging";
 	}
 	
-	@GetMapping("/merchandise")
-	public String merchandise() {
-		return "merchandise";
+
+	
+	
+	@GetMapping("/labschecking")
+	public String labschecking(Model model) {
+		Long identifierConvertedToString = (Long) model.getAttribute("identifier");
+		String labnameConvertedToString = String.valueOf(model.getAttribute("labname"));
+		String labintituitionConvertedToString = String.valueOf(model.getAttribute("labintituition"));
+		String addressConvertedToString = String.valueOf(model.getAttribute("address"));
+		String dateConvertedToString = String.valueOf(model.getAttribute("date"));
+		String timeConvertedToString = String.valueOf(model.getAttribute("time"));
+		
+		return "labschecking";
 	}
+	
+	
+	@PostMapping("/checklabs")
+	public ModelAndView checkLabs(@RequestParam("name") String patientName, RedirectAttributes ra) {
+		LabServices labService = new LabServices();
+		
+		if (labService.checkLabResults(patientName).size() > 0) {
+//			System.out.println("este es " + labService.checkLabResults(patientName).get("identification").getClass());
+			ra.addFlashAttribute("identifier",labService.checkLabResults(patientName).get("identification"));
+			ra.addFlashAttribute("labname", labService.checkLabResults(patientName).get("labname"));
+			ra.addFlashAttribute("labintituition",labService.checkLabResults(patientName).get("labintituition"));
+			ra.addFlashAttribute("address", labService.checkLabResults(patientName).get("address"));
+			ra.addFlashAttribute("date", labService.checkLabResults(patientName).get("date"));
+			ra.addFlashAttribute("time", labService.checkLabResults(patientName).get("time"));
+		} else {
+			ra.addFlashAttribute("identifier", 0L);
+			System.out.println(labService.checkLabResults(patientName).get("identification"));
+		}
+		
+		
+		
+
+		return new ModelAndView("redirect:/labschecking") ;
+		
+	}
+	
+	
+	
+	
+	
+	
 	
 	@GetMapping("/appointmentchecking")
 	public String appointmentchecking(Model model) {
-		String appo = (String) model.getAttribute("appointment");
-		System.out.println("por fin " + appo);
+
+		Long identifierConvertedToString = (Long) model.getAttribute("identifier");
+		String reasonConvertedToString = String.valueOf(model.getAttribute("reason")); 
+		String intituitionconvertedToString = String.valueOf(model.getAttribute("intituition")); 
+		String specialtyConvertedToString = String.valueOf(model.getAttribute("specialty")); 
+		String doctornameConvertedToString = String.valueOf(model.getAttribute("doctorsname")); 
+		String dateConvertedToString = String.valueOf(model.getAttribute("date")); 
+		String timeConvertedToString = String.valueOf(model.getAttribute("time")); 
+		String addressConvertedToString = String.valueOf(model.getAttribute("address")); 
 		return "appointmentchecking";
 	}
 	
 	
 	
 	
-	//Post requests
+	//Post requests ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 	@PostMapping("/check-appointment")
 	public ModelAndView checkAppointment(@RequestParam("appointment") String appointment, RedirectAttributes ra) {
 		
 		AppointmentsServices apppontmentService = new AppointmentsServices();
-		if(apppontmentService.checkAppointment(appointment)) {
-			System.out.println("no se agrego nada");
-			ra.addFlashAttribute("appointment", "0");
+		
+		if (apppontmentService.checkAppointment(appointment).size() > 0) {
+			ra.addFlashAttribute("identifier", apppontmentService.checkAppointment(appointment).get("appointmentIdentification"));
+			ra.addFlashAttribute("reason", apppontmentService.checkAppointment(appointment).get("reason"));
+			ra.addFlashAttribute("intituition", apppontmentService.checkAppointment(appointment).get("intituition"));
+			ra.addFlashAttribute("specialty", apppontmentService.checkAppointment(appointment).get("specialty"));
+			ra.addFlashAttribute("doctorsname", apppontmentService.checkAppointment(appointment).get("doctorsname"));
+			ra.addFlashAttribute("date", apppontmentService.checkAppointment(appointment).get("date"));
+			ra.addFlashAttribute("time", apppontmentService.checkAppointment(appointment).get("time"));
+			ra.addFlashAttribute("address", apppontmentService.checkAppointment(appointment).get("address"));
 		} else {
-			ra.addFlashAttribute("appointment", appointment);
+			ra.addFlashAttribute("identifier", 0L);
 		}
-		
-		
-//		return "redirect:/appointmentchecking";
+
+
 		return new ModelAndView("redirect:/appointmentchecking") ;
 		
 	}
+	
+	
+	
+
 	
 
 }

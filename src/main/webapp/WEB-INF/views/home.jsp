@@ -19,7 +19,7 @@
     <a href="/webmedical/benefits" class="btn btn-primary">Get to know the benefits</a>
   </div>
 </div>
-
+<!--   
 <div class="card" style="width: 18rem;">
   <img src="resources/medicine.png">
   <div class="card-body">
@@ -28,7 +28,7 @@
     <a href="/webmedical/medicines" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
-
+-->
 
 <div class="card" style="width: 18rem;">
   <img src="resources/stetoscope.png">
@@ -58,6 +58,7 @@
   </div>
 </div>
 
+<!--  
 		<div class="card" style="width: 18rem;">
  	<img src="resources/recruitment.png">
   <div class="card-body">
@@ -66,6 +67,8 @@
     <a href="/webmedical/merchandise" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
+
+-->
 
 
 </div>

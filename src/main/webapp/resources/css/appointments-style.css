@@ -1,1 +1,14 @@
 @charset "UTF-8";
+
+.datacontainer {
+	border: 1px solid blue;
+	width: 50%;
+	height: auto;
+	margin: auto;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.appointmentdata {
+	padding: 2%;
+}
