@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.datacontainer {
+.datacontainer,appointmentdatachange {
 	border: 1px solid blue;
 	width: 50%;
 	height: auto;
@@ -12,3 +12,7 @@
 .appointmentdata {
 	padding: 2%;
 }
+
+
+
+

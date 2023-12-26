@@ -29,8 +29,10 @@
 			</form>
 		</div>
 	</div>
-
+	<div class="waiting">
+	</div>
 
 	</div>
 </body>
+<script type="text/javascript" src="resources/js/waitingjs.js"></script>
 </html>

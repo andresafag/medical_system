@@ -17,14 +17,22 @@
    	 	<c:when test="${identifier gt 0}">
         <h3>Appointment details</h3>
 			<div class="appointmentdata">
-				<p><strong>Appointment identifier:</strong> <c:out value="${identifier}"/></p>
-				<p><strong>Reason of the appointment:</strong> <c:out value="${reason}"/></p>
-				<p><strong>Location:</strong> <c:out value="${intituition}"/></p>
-				<p><strong>Specialty:</strong> <c:out value="${specialty}"/></p>
-				<p><strong>Doctor's name:</strong> <c:out value="${doctorsname}"/></p>
-				<p><strong>Date:</strong> <c:out value="${date}"/></p>
-				<p><strong>Time: </strong><c:out value="${time}"/></p>
-				<p><strong>Address:</strong> <c:out value="${address}"/></p>
+				<p id="identifier"><strong>Appointment identifier:</strong> <c:out value="${identifier}"/></p>
+				<p id="reason"><strong>Reason of the appointment:</strong> <c:out value="${reason}"/></p>
+				<p id="intituition"><strong>Location:</strong> <c:out value="${intituition}"/></p>
+				<p id="specialty"><strong>Specialty:</strong> <c:out value="${specialty}"/></p>
+				<p id="doctorsname"><strong>Doctor's name:</strong> <c:out value="${doctorsname}"/></p>
+				<p id="date"><strong>Date:</strong> <c:out value="${date}"/></p>
+				<p id="time"><strong>Time: </strong><c:out value="${time}"/></p>
+				<p id="address"><strong>Address:</strong> <c:out value="${address}"/></p>
+				<form action="delete-appointment" method="POST">
+					<input type="hidden" name="_method" value="DELETE"></input>
+					<input hidden="true" type="text" name="identifier" value="<c:out value='${identifier}'/>"> 
+					<button class="deletebtn" type="submit">Delete appointment</button>
+				</form>
+				<div>
+					<button class="updatebtn" >Update appointment</button>
+				</div>
 			</div>
     	</c:when>
     	
@@ -38,4 +46,5 @@
 		</div>
 	</div>
 </body>
+<script type="text/javascript" src="resources/js/javascript.js"></script>
 </html>
