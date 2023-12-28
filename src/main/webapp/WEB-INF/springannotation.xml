@@ -13,7 +13,7 @@
 	   http://www.springframework.org/schema/mvc/spring-mvc.xsd"
        xmlns:context="http://www.springframework.org/schema/context">
 
-	<context:component-scan base-package="controller"></context:component-scan>
+	<context:component-scan base-package="controller,dao,services,models"></context:component-scan>
 
 
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

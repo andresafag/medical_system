@@ -12,7 +12,7 @@
 <!-- underneath I will place cards such as How to benefit from service, medicines, appointments, Diagnostic Imaging, Lab tests -->
 	<div class="card-container">
 	<div class="card" style="width: 18rem;">
-  <img src="resources/hospital.png">
+  <img src="resources/images/hospital.png">
   <div class="card-body">
     <h5 class="card-title">Benefits</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -31,7 +31,7 @@
 -->
 
 <div class="card" style="width: 18rem;">
-  <img src="resources/stetoscope.png">
+  <img src="resources/images/stetoscope.png">
   <div class="card-body">
     <h5 class="card-title">Appointments</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -41,7 +41,7 @@
 
 
 	<div class="card" style="width: 18rem;">
- 	<img src="resources/blood-test.png">
+ 	<img src="resources/images/blood-test.png">
   <div class="card-body">
     <h5 class="card-title">Lab</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -50,7 +50,7 @@
 </div>
 
 	<div class="card" style="width: 18rem;">
- 	<img src="resources/x-rays.png">
+ 	<img src="resources/images/x-rays.png">
   <div class="card-body">
     <h5 class="card-title">Diagnostic Imaging</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -76,7 +76,7 @@
 
 <div class="footer-container">
 	<div class="vl">
-		<img src="resources/caduceus-symbol.png" alt="medicalsymbol" width="60" height="80" class="d-inline-block align-text-top">
+		<img src="resources/images/caduceus-symbol.png" alt="medicalsymbol" width="60" height="80" class="d-inline-block align-text-top">
 		<span>PRECIS MEDICAL</span>
 	</div>
 	

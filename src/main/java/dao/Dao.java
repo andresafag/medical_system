@@ -1,6 +1,10 @@
 package dao;
 
+import java.sql.Date;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,26 +13,32 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import interfaces.AppoinmentsInter;
 import interfaces.LabsInter;
+import interfaces.PatientTransactions;
 import models.Appointment;
 import models.Patient;
+import services.RandomData;
+
 
 @Repository
-public class Dao implements AppoinmentsInter, LabsInter{
+public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions{
+	
+	@Autowired
+	private Patient patient;
+	@Autowired
+	private Appointment appointment;
+	private RandomData randomData = new RandomData();
+	private final Configuration cfg = new Configuration().configure();
+	private final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().build(); 
+	private final SessionFactory factory=cfg.buildSessionFactory();  
 
 	
+	// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
 	public Map<String,Object> appointmentById(Long id){
-	  			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-	  			System.out.println("listo");
-	  			 // A SessionFactory is set up once for an application!
-	  		    final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().build();     
-	  		   
-	  		  //creating seession factory object    
-	  		    SessionFactory factory=cfg.buildSessionFactory();    
-	  		  		    
-	  		  		//creating session object    
 	  		    Session session=factory.openSession();    
 //	  		    Transaction tx = session.beginTransaction();
 	  		  		
@@ -40,7 +50,6 @@ public class Dao implements AppoinmentsInter, LabsInter{
 		  		 HashMap<String, Object> appointmentData = new HashMap<String, Object>();
 		  		
 		  		if (!query.list().isEmpty()) {
-		  			Appointment appointment = new Appointment();
 			  		appointment = (Appointment) query.uniqueResult();
 			  		
 			        appointmentData.put("appointmentIdentification", appointment.getAppointmentIdentification());
@@ -53,38 +62,104 @@ public class Dao implements AppoinmentsInter, LabsInter{
 			        appointmentData.put("address", appointment.getAddress());
 				} 
 		  		
+		  		session.close();
 		  		return appointmentData;
-	  		    
-	 		
-	}
-
-	@Override
-	public boolean scheduleAppointment() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 	
 	
 	
 	
+	// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	@Override
+	public String scheduleAppointment(String firstName,String lastName, String secondLastName,  String reason, String specialty) {
+		String result;
+
+		    Session session=factory.openSession();    
+		    Transaction tx = session.beginTransaction();
+		  		
+		   
+//		    AQUI SE BUSCA AL PACIENTE. SI NO EXISTE SE LE PIEDE QUE AGREGUE SUS DATOS PERSONALES A LA BASE DE DATOS Y SI EXISTE SE PROCEDE AL SIGUIENTE PASO
+		    @SuppressWarnings("deprecation")
+		    Query queryPatient = session.createQuery("FROM Patient P WHERE P.firstName=lower(:fn) AND P.firstLastName=lower(:fl) AND P.secondLastName=:sl");
+		    queryPatient.setParameter("fn", firstName);
+		    queryPatient.setParameter("fl", lastName);
+		    queryPatient.setParameter("sl", secondLastName);
+		    
+		    if (queryPatient.list().isEmpty()) {
+				System.out.println("agreguemos al paciente a la base de datos primero");
+				result = "no patient";
+				
+			} else {
+//			    SE BUSCA LAS CITAS PROGRAMADAS PARA X FECHA	
+				
+			    @SuppressWarnings("deprecation")
+			    Query querySpecialtyOnSpecificDate = session.createQuery("FROM Appointment A WHERE A.appointmentDate=:date AND A.specialty=lower(:specialty)");
+			    querySpecialtyOnSpecificDate.setParameter("date", Date.valueOf(randomData.generateRandomDate())); 
+			    querySpecialtyOnSpecificDate.setParameter("specialty", specialty);
+
+//			    if (querySpecialtyOnSpecificDate.getResultList().size() > 0) {
+//				    Iterator iter = querySpecialtyOnSpecificDate.getResultList().iterator();
+//				    
+//				    while (iter.hasNext()) {
+//				    	Appointment qux = (Appointment) iter.next();  // fetch the object
+//			            // something we couldnt express in the query
+//			            System.out.println("identificacion " + qux.getAppointmentIdentification());
+//			            
+//				    } 
+			    int appointmentChecking =  querySpecialtyOnSpecificDate.getResultList().size();
+			    System.out.println(appointmentChecking > 0);
+			    
+			    
+			    
+			    switch (appointmentChecking) {
+				case 0:
+				case 1:
+				case 2:
+				case 3:
+				case 4:
+					System.out.println("no existe cita alguna para esa fecha");
+					List<Appointment> appo = new ArrayList<Appointment>();
+				    appointment = new Appointment();
+				    appointment.setAppointmentIdentification(randomData.getRandomIdentifier());
+				    appointment.setReason(reason);
+				    appointment.setInstitution("nuevo horizonte");
+				    appointment.setSpecialty(specialty);
+				    appointment.setDoctorName("Jaime Rodriguez");
+				    appointment.setAppointmentDate(Date.valueOf(randomData.generateRandomDate()));
+				    appointment.setTime("10:09");
+				    appointment.setAddress("calle 84 # 12 - 14");
+				    appo.add(appointment);
+				    patient = (Patient) queryPatient.uniqueResult();
+				    patient.setAppointments(appo);
+				    appointment.setPatient(patient);
+				    int res = (int) session.save(appointment);
+				    result = (res == 0) ? "not saved" : "saved";
+				    System.out.println("el resultado " + res);
+				    tx.commit();
+					break;
+				default:
+					result = "too many appointments";
+					break;
+				}
+ 
+			    
+			}
+	    
+		    session.close();
+  		
+		return result;
+	}
+	
+	
+	
+	// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 	
 
 	@Override
-	public Map<String,Object> checkLabs(String name) {
-		// TODO Auto-generated method stub
-		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-		System.out.println("listo");
-		 // A SessionFactory is set up once for an application!
-	    final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().build();     
-	   
-	  //creating seession factory object    
-	    SessionFactory factory=cfg.buildSessionFactory();    
-	  		 
-	    //creating session object    
+	public Map<String,Object> checkLabs(String name) {  
 	    Session session=factory.openSession();    
-	  	
-	  		
-//	  		
+  		
 	    @SuppressWarnings("deprecation")
 	    Query query = session.createQuery("FROM Patient P INNER JOIN P.labs c WHERE firstName=:name");
 	    query.setParameter("name", name);
@@ -94,10 +169,8 @@ public class Dao implements AppoinmentsInter, LabsInter{
 	    HashMap<String, Object> labsData = new HashMap<String, Object>();
   		
   		if (!query.list().isEmpty()) {
-  			Patient patient = new Patient();
   			patient = (Patient) query.uniqueResult();
 	  		
-	  		System.out.println(patient.getLabs().size());
 	  		
 	  		int labIndex = patient.getLabs().size() - 1;
 	  		
@@ -107,9 +180,7 @@ public class Dao implements AppoinmentsInter, LabsInter{
 	        labsData.put("address",  patient.getLabs().get(labIndex).getAddress());
 	        labsData.put("date",  patient.getLabs().get(labIndex).getDate());
 	        labsData.put("time",  patient.getLabs().get(labIndex).getTime());
-	  		
-	  		
-	        
+      
 
 		} 
   		
@@ -118,17 +189,13 @@ public class Dao implements AppoinmentsInter, LabsInter{
   		return labsData;
 	  
 	}
+	
+	
+	// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	@Override
 	public int deleteAppointment(Long id) {
 		int result = 0;
-		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-			System.out.println("listo");
-			 // A SessionFactory is set up once for an application!
-			SessionFactory factory = new Configuration().configure().buildSessionFactory();     
-		     
-		  		    
-		  		//creating session object    
 		Session session=factory.openSession();    
 		Transaction tx = session.beginTransaction();
 	
@@ -152,21 +219,11 @@ public class Dao implements AppoinmentsInter, LabsInter{
 		return result;
 	}
 	
-	
+	// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	@Override
 	public int updateAppointment(Long id, String reason, String specialty) {
-		System.out.println("el id es " + id);
-		System.out.println(reason);
-		System.out.println(specialty);
-		
 		int result = 0;
-		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-			System.out.println("listo");
-			 // A SessionFactory is set up once for an application!
-			SessionFactory factory = new Configuration().configure().buildSessionFactory();     
-		     
-		  		    
 		  		//creating session object    
 		Session session=factory.openSession();    
 		Transaction tx = session.beginTransaction();
@@ -185,9 +242,95 @@ public class Dao implements AppoinmentsInter, LabsInter{
 	  		  tx.rollback();
 	  		  throw t;
 	  		}
+		
+		session.close();
+		return result;
+	}
+
+	@Override	
+	public int createPatient(String firstName,String secondName, String firstLastName, String secondLastName, String age, String dateOfBirth, String gender, String address,String phoneNumber) {
+		
+		int result = 0;
+  		//creating session object    
+		Session session=factory.openSession();    
+		Transaction tx = session.beginTransaction();
+		
+		try {
+		  patient =  new Patient();
+		  patient.setFirstLastName(firstName);
+		  patient.setSecondName(secondName);
+		  patient.setFirstLastName(firstLastName);
+		  patient.setSecondLastName(secondLastName);
+		  patient.setAge(Integer.parseInt(age));
+		  patient.setDateOfBirth(Date.valueOf(dateOfBirth));
+		  patient.setGender(gender);
+		  patient.setAddress(address);
+		  patient.setPhoneNumber(Long.parseLong(phoneNumber));
+		  result = (int) session.save(patient);
+
+		  tx.commit();
+		} catch (Throwable t) {
+		  tx.rollback();
+		  throw t;
+		}
+
+		session.close();
+		
+		return result;
+	}
+
+
+
+
+	@Override
+	public boolean doesPatientExist(String firstName,String secondName, String firstLastName, String secondLastName, String age, String dateOfBirth) {
+		boolean result = false;
+  		//creating session object    
+		Session session=factory.openSession();    
+		
+		try {
+		  // your code
+		  String hql = "FROM Patient P WHERE firstName=:fn AND secondName=:sn AND firstLastName =:fln AND secondLastName=:sln AND age=:age AND dateOfBirth=:dob";
+		  Query queryPatient = session.createQuery(hql);
+		  queryPatient.setParameter("fn", firstName);
+		  queryPatient.setParameter("sn", secondName);
+		  queryPatient.setParameter("fln", firstLastName);
+		  queryPatient.setParameter("sln", secondLastName);
+		  queryPatient.setParameter("age", Integer.parseInt(age));
+		  queryPatient.setParameter("dob", Date.valueOf(dateOfBirth));
+		  
+		  result = !queryPatient.list().isEmpty();
+
+		} catch (Throwable t) {
+		  throw t;
+		}
+
+		session.close();
+		
 		return result;
 	}
 	
 	
-	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

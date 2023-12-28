@@ -13,6 +13,35 @@
 	padding: 2%;
 }
 
+.check-appointment {
+	border: 1px solid blue;
+	width: fit-content;
+	height: auto;
+	margin: auto;
+	margin-top: 10px;
+	text-align: center;
+}
+
+
+.check-appointment  * {
+	display: block;
+	margin: auto;
+}
+
+.schedule-appointment {
+	border: 1px solid blue;
+	width: fit-content;
+	height: auto;
+	margin: auto;
+	margin-top: 10px;
+	text-align: center;
+}
+
+.schedule-appointment * {
+	display: block;
+	margin:auto;
+}
+
 
 
 

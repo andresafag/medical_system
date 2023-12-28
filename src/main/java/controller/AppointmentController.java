@@ -1,6 +1,8 @@
 package controller;
 
-import org.springframework.http.HttpStatus;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,12 +11,11 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import models.Appointment;
 import services.AppointmentsServices;
 
 
@@ -37,11 +38,16 @@ public class AppointmentController {
 		return "appointmentchecking";
 	}
 	
-
+	
+	@GetMapping("/register-patient")
+	public String registerPatient() {
+		return "registerpatient";
+	}
 	
 	
 	
 	//Post requests ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
 	@PostMapping("/check-appointment")
 	public ModelAndView checkAppointment(@RequestParam("appointment") String appointment, RedirectAttributes ra) {
 		
@@ -65,6 +71,36 @@ public class AppointmentController {
 		
 	}
 	
+	
+	//Put requests ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+	@PutMapping("/schedule-appointment")
+	public  ResponseEntity<String> scheduleAppointment(@RequestBody MultiValueMap<String,String> paramMap) {
+		String page;
+		System.out.println("especialidad " + paramMap.get("specialty").get(0));
+		System.out.println("razón " + paramMap.get("reason").get(0));
+		System.out.println("firstName " + paramMap.get("firstName").get(0));
+		System.out.println("lastName " + paramMap.get("lastName").get(0));
+		System.out.println("secondLastName " + paramMap.get("secondLastName").get(0));
+
+		AppointmentsServices appointmentService = new AppointmentsServices();
+		System.out.println(appointmentService.scheduleAppointment(paramMap.get("firstName").get(0), paramMap.get("lastName").get(0), paramMap.get("secondLastName").get(0), paramMap.get("reason").get(0), paramMap.get("specialty").get(0)));
+		
+		return  ResponseEntity.ok()
+				.header("Custom-Header", appointmentService.scheduleAppointment(paramMap.get("firstName").get(0), paramMap.get("lastName").get(0), paramMap.get("secondLastName").get(0), paramMap.get("reason").get(0), paramMap.get("specialty").get(0)))
+		        .body("Custom header set");
+	}
+	
+	
+	
+	
+	@PutMapping("/registration")
+	public  ModelAndView patientRegistration(@RequestParam Map<String,String> allParams) {
+		AppointmentsServices appointmentService = new AppointmentsServices();
+		
+		appointmentService.registerPatient(allParams.get("firstName"), allParams.get("secondName"), allParams.get("firstLastName"), allParams.get("secondLastName"), allParams.get("age"), allParams.get("dateOfBirth"), allParams.get("gender"), allParams.get("address"), allParams.get("phoneNumber"));
+		return  new ModelAndView("redirect:/");
+	}
 	
 	
 	//Delete requests ----------------------------------------------------------------------------------------------------------------------------------------------------------------

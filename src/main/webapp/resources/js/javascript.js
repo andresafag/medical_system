@@ -1,4 +1,3 @@
-'strict'
 const updateBtn = document.querySelector(".updatebtn");
 const containerBox = document.querySelector(".datacontainer");
 const containerData = document.querySelector(".appointmentdata");
@@ -13,9 +12,8 @@ const addressTxt = document.querySelector("#address");
 
 
 
-
 const updateData = () =>{
-	  
+		  
 	   containerData.innerHTML = '';
 	   
 	   let getIdentifier = identifierTxt.innerHTML.split(" ")[2];
@@ -41,6 +39,7 @@ const updateData = () =>{
  	
  	let form = document.querySelector("#form")
  	
+ 	
   form.addEventListener("submit", function(e){
 	  e.preventDefault()
 
@@ -52,7 +51,6 @@ const updateData = () =>{
     	'Content-type': 'application/x-www-form-urlencoded',
   },
   		}).then((response)=>{
-			  console.log(response.headers)
 			  let customerHeader = ""
 			   for (var pair of response.headers.entries()) {
       				if(pair[0] == "custom-header"){
@@ -60,13 +58,20 @@ const updateData = () =>{
 					  }
     			}
     			if(customerHeader == "passed"){
-					alert("paso mi hermano")
-				} else {
-					alert("NO paso mi hermanitoooo")
-				}
+					 containerData.innerHTML = '';
+					 let resultTemplate =  `<h5>The information has been updated<h5>`
+					 setTimeout(function myGreeting() {
+  						window.location = "http://localhost:8080/webmedical/"
+  						window.onbeforeunload = function() {
+						 window.location = "http://localhost:8080/webmedical/"
+					  };
+					 }, 3000);
+					 containerData.innerHTML += resultTemplate
+					 
+				} 
 		  })
   })
- 	
+	
 	
 };
 

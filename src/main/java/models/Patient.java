@@ -2,6 +2,9 @@ package models;
 
 import java.sql.Date;
 import java.util.List;
+
+import org.springframework.stereotype.Component;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -11,7 +14,7 @@ import jakarta.persistence.Table;
 
 
 
-
+@Component
 @Entity
 @Table(name = "patient")
 public class Patient {
@@ -40,6 +43,14 @@ public class Patient {
 	private List<Appointment> appointments;
 	
 	
+	
+	public Patient() {
+		
+	}
+	
+	public Patient(int id) {
+		this.id=id;
+	}
 	
 	public int getId() {
 		return id;
