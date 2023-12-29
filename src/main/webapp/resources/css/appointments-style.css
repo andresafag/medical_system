@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+
+
+.appointments-box {
+	width: 50%;
+	height: auto;
+	margin: 15px auto auto auto;
+	position: relative;
+	display: flex;
+}
+
 .datacontainer,appointmentdatachange {
 	border: 1px solid blue;
 	width: 50%;
@@ -13,35 +23,71 @@
 	padding: 2%;
 }
 
+
+
 .check-appointment {
-	border: 1px solid blue;
 	width: fit-content;
-	height: auto;
-	margin: auto;
-	margin-top: 10px;
+	height: 50vh;
+	margin: 10px auto;
 	text-align: center;
+	position: relative;
 }
 
 
-.check-appointment  * {
+.check-appointment label, .check-appointment input, .check-appointment button { 
 	display: block;
-	margin: auto;
+	margin: 10px auto 10px auto;
+}
+
+.check-appointment form {
+	margin-top: 50%;
+	padding: 6%;
+	border-radius: 8%;
+	border: 1px solid rgb(207, 207, 207);
+	background-color: antiquewhite;
+}
+
+.check-appointment form input{
+	border: none;
+}
+
+.schedule-appointment form:hover {
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.check-appointment form:hover {
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.schedule-appointment form{
+	border: 1px solid rgb(207, 207, 207);
+	padding: 6%;
+	border-radius: 8%;
+	background-color: antiquewhite;
+}
+
+
+.schedule-appointment form input{
+	border: none;
 }
 
 .schedule-appointment {
-	border: 1px solid blue;
 	width: fit-content;
-	height: auto;
-	margin: auto;
-	margin-top: 10px;
+	height: 50vh;
+	margin: 10px auto;
 	text-align: center;
+	padding: 3%;
+	position: relative;
 }
 
 .schedule-appointment * {
 	display: block;
-	margin:auto;
+	margin:8px auto;
 }
 
 
-
+.monserrat {
+	font-family: 'Fjalla One', sans-serif;
+	font-weight: 750;
+}
 

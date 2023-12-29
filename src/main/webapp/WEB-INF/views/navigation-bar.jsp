@@ -9,13 +9,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Us</a>
+          <a class="nav-link active nav-items" aria-current="page" href="#">Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Information</a>
+          <a class="nav-link nav-items" href="#">Information</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact us</a>
+          <a class="nav-link nav-items" href="#">Contact us</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
