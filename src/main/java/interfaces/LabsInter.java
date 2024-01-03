@@ -4,5 +4,5 @@ import java.util.Map;
 
 public interface LabsInter {
 	
-	public Map<String,Object> checkLabs(String name);
+	public Map<String,Object> checkLabs(String name, String lastName, String secondLastName);
 }

@@ -18,9 +18,14 @@
 <div class="labs-box">
 	<div class="labinfoentry">
 		<form action="checklabs" method="POST">
-				<label for="name">Enter your full name </label>
+				<label class="monserrat" for="name">Enter your first name </label>
 				<input id="name" type="text" name="name">
-				<button type="submit">Check lab results</button>
+				<label class="monserrat"  for="lastName">Enter your last name </label>
+				<input id="lastName" type="text" name="lastName">
+				<label class="monserrat"  for="secondLastName">Enter your second last name </label>
+				<input id="secondLastName" type="text" name="secondLastName">
+				<button type="submit" class="btn btn-light">Check lab results</button>
+				
 			</form>
 	</div>
 </div>

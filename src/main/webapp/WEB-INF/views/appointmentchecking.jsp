@@ -5,6 +5,10 @@
 <meta charset="UTF-8">
 <link href="resources/css/navigator-style.css" rel="stylesheet">
 <link rel="stylesheet" href="resources/css/appointments-style.css">
+<link rel="stylesheet" href="resources/css/appointments-style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <script src="https://kit.fontawesome.com/8b8b86760e.js" crossorigin="anonymous"></script>
 <title>checking appointment</title>
@@ -15,7 +19,7 @@
 		<div class="datacontainer">
 		<c:choose>
    	 	<c:when test="${identifier gt 0}">
-        <h3>Appointment details</h3>
+        <h3 class="monserrat">Appointment details</h3>
 			<div class="appointmentdata">
 				<p id="identifier"><strong>Appointment identifier:</strong> <c:out value="${identifier}"/></p>
 				<p id="reason"><strong>Reason of the appointment:</strong> <c:out value="${reason}"/></p>
@@ -28,10 +32,10 @@
 				<form action="delete-appointment" method="POST">
 					<input type="hidden" name="_method" value="DELETE"></input>
 					<input hidden="true" type="text" name="identifier" value="<c:out value='${identifier}'/>"> 
-					<button class="deletebtn" type="submit">Delete appointment</button>
+					<button class="deletebtn btn btn-light" type="submit">Delete appointment</button>
 				</form>
 				<div>
-					<button class="updatebtn" >Update appointment</button>
+					<button class="updatebtn btn btn-light" >Update appointment</button>
 				</div>
 			</div>
     	</c:when>

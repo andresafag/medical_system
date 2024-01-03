@@ -31,8 +31,7 @@ const updateData = () =>{
 				<p id="date">${dateTxt.innerHTML}</p>
 				<p id="time">${timeTxt.innerHTML}</p>
 				<p id="address">${addressTxt.innerHTML}</p>
-				<button type="submit">Update appointment now</button>
- 				`
+				<button type="submit" class="btn btn-light">Update appointment now</button>`
   
  	containerData.innerHTML += template
  	

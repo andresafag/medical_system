@@ -10,7 +10,7 @@
 	display: flex;
 }
 
-.datacontainer,appointmentdatachange {
+appointmentdatachange {
 	border: 1px solid blue;
 	width: 50%;
 	height: auto;
@@ -19,10 +19,29 @@
 	text-align: center;
 }
 
+.datacontainer {
+	padding: 6%;
+	border-radius: 8%;
+	border: 1px solid rgb(207, 207, 207);
+	background-color: antiquewhite;
+	width: 50%;
+	height: auto;
+	margin: 20px auto auto auto;
+	text-align: center;
+}
+
+.monserrat {
+	font-family: 'Fjalla One', sans-serif;
+}
+
 .appointmentdata {
 	padding: 2%;
 }
 
+.appointmentdata p {
+	font-family: 'Pacifico', cursive;
+	font-weight: 500;
+}
 
 
 .check-appointment {

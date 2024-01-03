@@ -1,9 +1,13 @@
 package controller;
 
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -28,20 +32,20 @@ public class LabsController {
 	
 	
 	@PostMapping("/checklabs")
-	public ModelAndView checkLabs(@RequestParam("name") String patientName, RedirectAttributes ra) {
+	public ModelAndView checkLabs(@RequestBody MultiValueMap<String,String> paramMap, RedirectAttributes ra) {
 		LabServices labService = new LabServices();
+			Map<String, Object> mapLabItems= labService.checkLabResults(paramMap.get("name").get(0), paramMap.get("lastName").get(0), paramMap.get("secondLastName").get(0));
 		
-		if (labService.checkLabResults(patientName).size() > 0) {
-//			System.out.println("este es " + labService.checkLabResults(patientName).get("identification").getClass());
-			ra.addFlashAttribute("identifier",labService.checkLabResults(patientName).get("identification"));
-			ra.addFlashAttribute("labname", labService.checkLabResults(patientName).get("labname"));
-			ra.addFlashAttribute("labintituition",labService.checkLabResults(patientName).get("labintituition"));
-			ra.addFlashAttribute("address", labService.checkLabResults(patientName).get("address"));
-			ra.addFlashAttribute("date", labService.checkLabResults(patientName).get("date"));
-			ra.addFlashAttribute("time", labService.checkLabResults(patientName).get("time"));
+		if (mapLabItems.size() > 0) {
+			ra.addFlashAttribute("identifier",mapLabItems.get("identification"));
+			ra.addFlashAttribute("labname", mapLabItems.get("labname"));
+			ra.addFlashAttribute("labintituition",mapLabItems.get("labintituition"));
+			ra.addFlashAttribute("address", mapLabItems.get("address"));
+			ra.addFlashAttribute("date", mapLabItems.get("date"));
+			ra.addFlashAttribute("time", mapLabItems.get("time"));
 		} else {
 			ra.addFlashAttribute("identifier", 0L);
-			System.out.println(labService.checkLabResults(patientName).get("identification"));
+			System.out.println(mapLabItems.get("identification"));
 		}
 		
 		

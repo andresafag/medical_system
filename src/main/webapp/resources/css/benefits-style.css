@@ -2,7 +2,7 @@
 
 
 .benefits-box {
-	border: 1px solid blue;	
+	border: 1px solid antiquewhite;	
 	margin-top: 15px;
 	width: 80%;
 	height: auto;
@@ -12,6 +12,9 @@
 	line-break: loose;
 	word-spacing: 2px;
 	line-height: 1.5;
+	border-radius: 7%;
+	font-weight: 600;
+	background-color: rgb(253, 245, 236);
 }
 
 

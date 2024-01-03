@@ -3,6 +3,7 @@
  <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="resources/css/style.css" rel="stylesheet">
 <link href="resources/css/navigator-style.css" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="resources/images/caduceus-symbol.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
@@ -11,7 +12,6 @@
 <body>
 	<div class="container-fluid">
 	<%@include file="navigation-bar.jsp"%>
-
 <!-- underneath I will place cards such as How to benefit from service, medicines, appointments, Diagnostic Imaging, Lab tests -->
 	<div class="card-container">
 	
@@ -53,6 +53,7 @@
   </div>
 </div>
 
+</div>
 
 </div>
 
@@ -80,7 +81,6 @@
 </div>
 
 
-	</div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </html>

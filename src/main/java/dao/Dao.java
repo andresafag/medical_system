@@ -157,12 +157,14 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions{
 	
 
 	@Override
-	public Map<String,Object> checkLabs(String name) {  
+	public Map<String,Object> checkLabs(String name, String lastName, String secondLastName) {  
 	    Session session=factory.openSession();    
   		
 	    @SuppressWarnings("deprecation")
-	    Query query = session.createQuery("FROM Patient P INNER JOIN P.labs c WHERE firstName=:name");
+	    Query query = session.createQuery("FROM Patient P INNER JOIN P.labs c WHERE firstName=lower(:name) AND firstLastName=lower(:lastName) AND secondLastName=lower(:secondLastName)");
 	    query.setParameter("name", name);
+	    query.setParameter("lastName", lastName);
+	    query.setParameter("secondLastName", secondLastName);
 
 	    
 	    
