@@ -16,6 +16,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import interfaces.AppoinmentsInter;
+import interfaces.ImagingInter;
 import interfaces.LabsInter;
 import interfaces.PatientTransactions;
 import models.Appointment;
@@ -24,7 +25,7 @@ import services.RandomData;
 
 
 @Repository
-public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions{
+public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, ImagingInter{
 	
 	@Autowired
 	private Patient patient;
@@ -310,6 +311,34 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions{
 		session.close();
 		
 		return result;
+	}
+
+
+
+
+	@Override
+	public int getPatientId(String name, String lastName, String secondLastName) {
+		int result = 0;
+		Session session=factory.openSession();    
+
+		  // your code
+		  String hql = "FROM Patient P WHERE firstName=:fn AND firstLastName =:fln AND secondLastName=:sln";
+		  Query queryPatient = session.createQuery(hql);
+		  queryPatient.setParameter("fn", name);
+		  queryPatient.setParameter("fln", lastName);
+		  queryPatient.setParameter("sln", secondLastName);
+		  
+		  System.out.println("falso o verdadero " + queryPatient.list().isEmpty());
+		  if (queryPatient.list().isEmpty() == false) {
+			  patient = (Patient) queryPatient.uniqueResult();
+			  System.out.println("lo que retorna " + patient.getId());
+			  result = patient.getId();
+		  } 
+
+	
+		session.close();
+		return result;
+		
 	}
 	
 	

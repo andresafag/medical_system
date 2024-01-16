@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <link href="resources/css/navigator-style.css" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="resources/images/caduceus-symbol.png">
 <link rel="stylesheet" href="resources/css/appointments-style.css">
 <link rel="stylesheet" href="resources/css/appointments-style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">

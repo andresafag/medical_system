@@ -86,7 +86,7 @@ public class AppointmentController {
 		AppointmentsServices appointmentService = new AppointmentsServices();
 		System.out.println(appointmentService.scheduleAppointment(paramMap.get("firstName").get(0), paramMap.get("lastName").get(0), paramMap.get("secondLastName").get(0), paramMap.get("reason").get(0), paramMap.get("specialty").get(0)));
 		
-		return  ResponseEntity.ok()
+		return ResponseEntity.ok()
 				.header("Custom-Header", appointmentService.scheduleAppointment(paramMap.get("firstName").get(0), paramMap.get("lastName").get(0), paramMap.get("secondLastName").get(0), paramMap.get("reason").get(0), paramMap.get("specialty").get(0)))
 		        .body("Custom header set");
 	}
