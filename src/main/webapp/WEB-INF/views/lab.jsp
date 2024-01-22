@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +19,7 @@
 
 <div class="labs-box">
 	<div class="labinfoentry">
+	<!--  
 		<form action="checklabs" method="POST">
 				<div class="fieldContainer">
 					<label class="monserrat" for="name">Enter your first name</label>
@@ -36,6 +38,21 @@
 				</div>
 				<button type="submit" class="btn btn-light">Check lab results</button>
 			</form>
+			-->
+			
+			<form:form action="checklabs" modelAttribute="patient"> 
+				
+				<form:label path="firstName" class="monserrat">Enter your first name</form:label>
+				<form:input path="firstName" />
+				
+				<form:label path="firstLastName" class="monserrat">Enter your last name</form:label>
+				<form:input path="firstLastName" />
+				
+				<form:label path="secondLastName" class="monserrat">Enter your second last name</form:label>
+				<form:input path="secondLastName" />
+				
+				<button type="submit" class="btn btn-light">Search</button>
+			</form:form>
 	</div>
 </div>
 	</div>

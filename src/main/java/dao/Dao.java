@@ -78,7 +78,7 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 
 		    Session session=factory.openSession();    
 		    Transaction tx = session.beginTransaction();
-		  		
+		    System.out.println("desde el backend " + firstName + " " + lastName);
 		   
 //		    AQUI SE BUSCA AL PACIENTE. SI NO EXISTE SE LE PIEDE QUE AGREGUE SUS DATOS PERSONALES A LA BASE DE DATOS Y SI EXISTE SE PROCEDE AL SIGUIENTE PASO
 		    @SuppressWarnings("deprecation")

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,37 +21,42 @@
 
 	<div class="appointments-box">
 		<div class="check-appointment">
-			<form action="check-appointment" method="POST">
-				<label for="appointment" class="monserrat">Enter an appointment number</label>
-				<input id="appointment" type="text" name="appointment">
-				<button type="submit" class="btn btn-light">Check appointment</button>
-			</form>
+			<form:form action="check-appointment" modelAttribute="appointment"> 
+				
+				<form:label path="appointmentIdentification" class="monserrat">Enter an appointment number</form:label>
+				<form:input path="appointmentIdentification" />
+				
+				<button type="submit" class="btn btn-light">Search appointment</button>
+			</form:form>
+			
 		</div>
 		
 		<div class="schedule-appointment" >
-			<form action="schedule-appointment" method="POST">
-				<input type="hidden" name="_method" value=PUT></input> 
+				 
+				 <form:form action="schedule-appointment" modelAttribute="binding">
 				
-				<label for="reason" class="monserrat">Give us brief reason of the appointment</label>
-				<input type="text" id="reason" name="reason">
-				
-				<label for="firstName" class="monserrat">First name</label>
-				<input type="text" id="firstName" name="firstName">
-				
-				<label for="lastName" class="monserrat">Last name</label>
-				<input type="text" id="lastName" name="lastName">
-				
-				<label for="secondLastName" class="monserrat">Second last name</label>
-				<input type="text" id="secondLastName" name="secondLastName">
-				
-				
-				<label for="specialty" class="monserrat">Medical specialty</label>
-				<input type="text" id="specialty" name="specialty">
-				<button type="submit" class="btn btn-light">Submit appointment</button>
-			</form>
+						
+					<form:label path="reason" for="reason" class="monserrat">Give us brief reason of the appointment</form:label>
+					<form:input class="raz" path="reason" name="reason" id="reason"/>
+					
+					<form:label path="firstName" class="monserrat">First name</form:label>
+					<form:input path="firstName" />
+					
+					<form:label path="lastName" class="monserrat">Last name</form:label>
+					<form:input path="lastName" />
+					
+					<form:label path="secondLastName" class="monserrat">Second last name</form:label>
+					<form:input path="secondLastName" />
+					
+					<form:label path="specialty" class="monserrat">Specialty</form:label>
+					<form:input path="specialty" />
+						
+					
+					<form:button type="submit" class="btn btn-light">Submit appointment</form:button>
+				 </form:form>
+		
 		</div>
-	</div>
-	<div class="waiting">
+		
 	</div>
 
 	</div>

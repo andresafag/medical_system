@@ -1,8 +1,7 @@
 <%@page import="org.hibernate.internal.build.AllowSysOut"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="java.io.File"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,32 +39,6 @@
 			</form>
 	</div>
 </div>
-	<!-- <img src="<%= request.getContextPath() %>/resources/imaging/2/arm.jpg"/> -->
-	
-	<!-- 
-	<% try {  %>
-		<% String s =  request.getContextPath()+"/resources/imaging/102/"; %>
-		<% File f  =new File("/Users/Andres/javaProjects/Web_medical_system/webmedical/src/main/webapp/resources/imaging/2"); %>
-	
-		<% String contents[] = f.list(); %>
-		<% String length = String.valueOf(contents.length - 1); %>
-		<% out.println("exte " + length); %>
-		<c:set var="extension" value="<%=length %>" />
-		<c:set var="contents" value="<%= contents %>" />
-		
-		<c:forEach var = "i" begin = "0" end = "${extension}">
-         Item <c:out value = "hola ${i}"/><p>
-         
-         <img class="imaginglist" src="resources/imaging/2/${contents[i]}"/>
-      </c:forEach>
-		
-		
-		
-		<% } catch (NullPointerException nul){%>
-			<p>wrong</p>
-		<% } %>
-	
-	-->
      
 </div>
 

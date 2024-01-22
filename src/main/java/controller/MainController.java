@@ -1,7 +1,17 @@
 package controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+
+import models.Appointment;
+import models.BindingClass;
+import models.Patient;
 
 
 @Controller
@@ -21,12 +31,12 @@ public class MainController {
 	
 	
 	@GetMapping("/appointments")
-	public String appointments() {
+	public String appointments(@ModelAttribute("binding") BindingClass binding, @ModelAttribute("appointment") Appointment appointment) { //@ModelAttribute("appointment") Appointment appointment
 		return "appointments";
 	}
 	
 	@GetMapping("/labs")
-	public String labs() {
+	public String labs(@ModelAttribute("patient") Patient patient) {
 		return "lab";
 	}
 	
@@ -35,7 +45,11 @@ public class MainController {
 		return "imaging";
 	}
 	
-
+	@GetMapping("/merchandise")
+	public String merchandise(Model model) {
+		model.addAttribute("paciente", new Patient()); 
+		return "merchandise";
+	}
 
 
 }

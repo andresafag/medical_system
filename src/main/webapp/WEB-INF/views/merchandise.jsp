@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,8 +16,13 @@
 	<%@include file="navigation-bar.jsp"%>
 
 <div class="merchandise-box">
-	<div>
-		
+<div class="imagingdataentry">
+		 <form:form action="testingpost" modelAttribute="paciente"> 
+				<div class="fieldContainer">
+				 	First name:<form:input path="firstName" /> 
+				</div>
+				<button type="submit" class="btn btn-light">Check the imaging results</button>
+			</form:form>
 	</div>
 </div>
 

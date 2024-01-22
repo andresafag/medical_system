@@ -10,10 +10,10 @@ import dao.Dao;
 public class AppointmentsServices {
 		
 	
-	public Map<String,Object> checkAppointment(String id) {
-		Long idLong = Long.parseLong(id);
+	public Map<String,Object> checkAppointment(long id) {
+//		Long idLong = Long.parseLong(id);
 		Dao dao =  new Dao();
-		return dao.appointmentById(idLong);
+		return dao.appointmentById(id);
 	}
 	
 	public int  deleteAppointment(String id) {

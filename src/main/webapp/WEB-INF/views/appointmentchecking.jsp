@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,11 +31,11 @@
 				<p id="date"><strong>Date:</strong> <c:out value="${date}"/></p>
 				<p id="time"><strong>Time: </strong><c:out value="${time}"/></p>
 				<p id="address"><strong>Address:</strong> <c:out value="${address}"/></p>
-				<form action="delete-appointment" method="POST">
-					<input type="hidden" name="_method" value="DELETE"></input>
-					<input hidden="true" type="text" name="identifier" value="<c:out value='${identifier}'/>"> 
-					<button class="deletebtn btn btn-light" type="submit">Delete appointment</button>
-				</form>
+				 <form:form action="delete-appointment" modelAttribute="appointment">
+				 <input type="hidden" name="_method" value="DELETE">
+				 <form:input path="appointmentIdentification" hidden="true" value="${identifier}" />
+				 <form:button type="submit" class="btn btn-light">Delete appointment</form:button>
+				 </form:form>
 				<div>
 					<button class="updatebtn btn btn-light" >Update appointment</button>
 				</div>

@@ -34,3 +34,27 @@
 	font-family: 'Fjalla One', sans-serif;
 	font-weight: 750;
 }
+
+
+.imaginglist {
+	height: 250px;
+	width: auto;
+	margin: 8px;
+}
+
+.imagingBox {
+  	display: grid;
+ 	grid-template-columns: 300px 300px;
+	padding: 8px;
+	margin:15px;
+}
+
+
+
+
+
+
+
+
+
+

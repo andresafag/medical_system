@@ -6,11 +6,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import models.Patient;
 import services.LabServices;
 
 
@@ -32,11 +35,12 @@ public class LabsController {
 	
 	
 	@PostMapping("/checklabs")
-	public ModelAndView checkLabs(@RequestBody MultiValueMap<String,String> paramMap, RedirectAttributes ra) {
+	public ModelAndView checkLabs(@ModelAttribute("patient") Patient patient, RedirectAttributes ra) {//@RequestBody MultiValueMap<String,String> paramMap, RedirectAttributes ra
 		LabServices labService = new LabServices();
-			Map<String, Object> mapLabItems= labService.checkLabResults(paramMap.get("name").get(0), paramMap.get("lastName").get(0), paramMap.get("secondLastName").get(0));
-		
-		if (mapLabItems.size() > 0) {
+		System.out.println("nombre " + patient.getFirstName());
+			Map<String, Object> mapLabItems= labService.checkLabResults(patient.getFirstName(), patient.getFirstLastName(), patient.getSecondLastName());
+			
+			if (mapLabItems.size() > 0) {
 			ra.addFlashAttribute("identifier",mapLabItems.get("identification"));
 			ra.addFlashAttribute("labname", mapLabItems.get("labname"));
 			ra.addFlashAttribute("labintituition",mapLabItems.get("labintituition"));
@@ -45,12 +49,8 @@ public class LabsController {
 			ra.addFlashAttribute("time", mapLabItems.get("time"));
 		} else {
 			ra.addFlashAttribute("identifier", 0L);
-			System.out.println(mapLabItems.get("identification"));
 		}
 		
-		
-		
-
 		return new ModelAndView("redirect:/labschecking") ;
 		
 	}
