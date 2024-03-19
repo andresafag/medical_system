@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
 <!DOCTYPE html>
 <html>
@@ -22,7 +21,7 @@
 	<div class="appointments-box">
 		<div class="check-appointment">
 			<form:form action="check-appointment" modelAttribute="appointment"> 
-				
+
 				<form:label path="appointmentIdentification" class="monserrat">Enter an appointment number</form:label>
 				<form:input path="appointmentIdentification" />
 				

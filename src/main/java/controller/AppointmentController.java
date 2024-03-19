@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import models.Appointment;
 import models.BindingClass;
+import models.Patient;
 import services.AppointmentsServices;
 
 
@@ -57,9 +57,7 @@ public class AppointmentController {
 	public ModelAndView checkAppointment(@ModelAttribute("appointment") Appointment appointment, RedirectAttributes ra) {
 		
 		AppointmentsServices appointmentService = new AppointmentsServices();
-		System.out.println("la razon es " + appointmentService.checkAppointment(appointment.getAppointmentIdentification()).get("reason"));
-		System.out.println("el numero de id es  " + appointment.getAppointmentIdentification());
-		
+
 		
 		if (appointmentService.checkAppointment(appointment.getAppointmentIdentification()).size() > 0) {
 			ra.addFlashAttribute("identifier", appointmentService.checkAppointment(appointment.getAppointmentIdentification()).get("appointmentIdentification"));
@@ -73,6 +71,9 @@ public class AppointmentController {
 		} else {
 			ra.addFlashAttribute("identifier", 0L);
 		}
+		
+		System.out.println("la razon es " + appointmentService.checkAppointment(appointment.getAppointmentIdentification()).get("reason"));
+		System.out.println("el numero de id es  " + appointment.getAppointmentIdentification());
 
 
 		return new ModelAndView("redirect:/appointmentchecking") ;
@@ -96,19 +97,27 @@ public class AppointmentController {
 		return new ResponseEntity<>(ht);
 	}
 	
+
+	
+//	@PutMapping("/registration")
+//	public  ModelAndView patientRegistration(@RequestParam Map<String,String> allParams) {
+//		AppointmentsServices appointmentService = new AppointmentsServices();
+//		
+//		appointmentService.registerPatient(allParams.get("firstName"), allParams.get("secondName"), allParams.get("firstLastName"), allParams.get("secondLastName"), allParams.get("age"), allParams.get("dateOfBirth"), allParams.get("gender"), allParams.get("address"), allParams.get("phoneNumber"));
+//		return  new ModelAndView("redirect:/");
+//	}
 	
 	
 	
-	
-	
-	
-	@PutMapping("/registration")
-	public  ModelAndView patientRegistration(@RequestParam Map<String,String> allParams) {
-		AppointmentsServices appointmentService = new AppointmentsServices();
+	@PostMapping("/registration")
+	public  ModelAndView patientRegistration(@ModelAttribute("patient") Patient patient, RedirectAttributes ra) {
+		System.out.println("El nombre es " + " " + patient.getFirstLastName());
 		
-		appointmentService.registerPatient(allParams.get("firstName"), allParams.get("secondName"), allParams.get("firstLastName"), allParams.get("secondLastName"), allParams.get("age"), allParams.get("dateOfBirth"), allParams.get("gender"), allParams.get("address"), allParams.get("phoneNumber"));
 		return  new ModelAndView("redirect:/");
 	}
+	
+	
+	
 	
 	
 	//Delete requests ----------------------------------------------------------------------------------------------------------------------------------------------------------------

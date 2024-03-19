@@ -3,6 +3,10 @@ const appointmentsBox = document.querySelector(".appointments-box")
 
 
 
+
+
+
+
   form.addEventListener("submit", function(e){
 	  e.preventDefault()
 
