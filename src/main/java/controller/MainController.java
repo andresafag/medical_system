@@ -50,6 +50,13 @@ public class MainController {
 		model.addAttribute("paciente", new Patient()); 
 		return "merchandise";
 	}
+	
+	@GetMapping("/register-patient")
+	public String registerPatient(Model model) {
+		model.addAttribute("patient", new Patient()); 
+		return "registerpatient";
+	}
+	
 
 
 }

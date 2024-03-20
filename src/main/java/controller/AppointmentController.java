@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,16 +17,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import jakarta.validation.Valid;
 import models.Appointment;
 import models.BindingClass;
 import models.Patient;
 import services.AppointmentsServices;
+import services.PatientServices;
 
 
 @Controller
 public class AppointmentController {
-	
-	
 	
 	@GetMapping("/appointmentchecking")
 	public String appointmentchecking(Model model, @ModelAttribute("appointment") Appointment appointment) {
@@ -41,12 +41,6 @@ public class AppointmentController {
 		String timeConvertedToString = String.valueOf(model.getAttribute("time")); 
 		String addressConvertedToString = String.valueOf(model.getAttribute("address")); 
 		return "appointmentchecking";
-	}
-	
-	
-	@GetMapping("/register-patient")
-	public String registerPatient() {
-		return "registerpatient";
 	}
 	
 	
@@ -110,8 +104,9 @@ public class AppointmentController {
 	
 	
 	@PostMapping("/registration")
-	public  ModelAndView patientRegistration(@ModelAttribute("patient") Patient patient, RedirectAttributes ra) {
-		System.out.println("El nombre es " + " " + patient.getFirstLastName());
+	public  ModelAndView patientRegistration(@Valid @ModelAttribute("patient") Patient patient, RedirectAttributes ra) {
+		PatientServices patientServices  = new PatientServices();
+		patientServices.savePatient(patient.getFirstName(), patient.getSecondName(), patient.getFirstLastName(), patient.getSecondLastName(), patient.getAge(), patient.getDateOfBirth(), patient.getGender(), patient.getAddress(), patient.getPhoneNumber());
 		
 		return  new ModelAndView("redirect:/");
 	}

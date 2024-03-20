@@ -18,71 +18,54 @@
 
 	<div class="registration-box">
 		<div class="registration">
-			<!--   <form action="registration" method="POST">
-				<input type="hidden" name="_method" value=PUT></input> 
-				
-				
-				<label for="firstName">Type in your first name</label>
-				<input type="text" id="firstName" name="firstName">
-				
-				<label for="secondName">Type in your second name</label>
-				<input type="text" id="secondName" name="secondName">
-				
-				<label for="lastName">Type in last name</label>
-				<input type="text" id="lastName" name="lastName">
-				
-				<label for="secondLastName">Type in second last name</label>
-				<input type="text" id="secondLastName" name="secondLastName">
-				
-				<label for="age">Type in age</label>
-				<input type="text" id="age" name="age">
-				
-				<label for="dateOfBirth">Type in date of birth</label>
-				<input type="text" id="dateOfBirth" name="dateOfBirth">
-				
-				<label for="gender">Type in gender</label>
-				<input type="text" id="gender" name="gender">
-				
-				<label for="address">Type in address</label>
-				<input type="text" id="address" name="address">
-				
-				<label for="phoneNumber">Type in phoneNumber</label>
-				<input type="text" id="phoneNumber" name="phoneNumber">
-				
-		
-
-				<button type="submit">Become a patient</button>
-			</form>-->
-			
 			
 			<form:form action="registration" modelAttribute="patient">
 				
-				<form:label path="firstName" class="monserrat">Type in your first name</form:label>
-				<form:input path="firstName" />
+				<div class="form-items">
+				<form:label path="firstName" class="monserrat" >Type in your first name</form:label>
+				<form:input path="firstName"  placeholder="Juanito" style="text-align:center;"/>
+				</div>
 				
+				<div class="form-items">
 				<form:label path="secondName" class="monserrat">Type in your second name</form:label>
-				<form:input path="secondName" />
+				<form:input path="secondName" placeholder="Jaime" />
+				</div>
 				
+				<div class="form-items">				
 				<form:label path="firstLastName" class="monserrat">Type in last namer</form:label>
-				<form:input path="firstLastName" />
+				<form:input path="firstLastName" placeholder="Jimenez" />
+				</div>
 				
+				<div class="form-items">
 				<form:label path="secondLastName" class="monserrat">Type in second last name</form:label>
-				<form:input path="secondLastName" />
+				<form:input path="secondLastName" placeholder="Gabino" />
+				</div>
 				
-				<form:label path="age" class="monserrat">Type in age</form:label>
-				<form:input path="age" />
+				<div class="form-items">
+				<form:label path="age" class="monserrat">Type in your age</form:label>
+				<form:input path="age" placeholder="25"/>
+				</div>
+		
+				<div class="form-items">
+				<form:label path="gender" class="monserrat">Type in a gender</form:label>
+				<form:input path="gender" placeholder="M or F"/>
+				</div>
 				
-				<form:label path="dateOfBirth" class="monserrat">Type in date of birth</form:label>
-				<form:input path="dateOfBirth" />
+				<div class="form-items">
+				<form:label path="dateOfBirth" class="monserrat">Type in your date of birth</form:label>
+				<form:input path="dateOfBirth" placeholder="1987-02-03"/>
+				</div>
 				
-				<form:label path="gender" class="monserrat">Type in gender</form:label>
-				<form:input path="gender" />
-			
-				<form:label path="address" class="monserrat">Type in address</form:label>
-				<form:input path="address" />
+				<div class="form-items">
+				<form:label path="address" class="monserrat">Type in an address</form:label>
+				<form:input path="address" placeholder="2354 wetson street"/>
+				</div>
 				
-				<form:label path="phoneNumber" class="monserrat">Type in phoneNumber</form:label>
-				<form:input path="phoneNumber" />
+				<div class="form-items">
+				<form:label path="phoneNumber" class="monserrat">Type in your phone number</form:label>
+				<form:input path="phoneNumber" placeholder="3128779999" />
+				</div>
+				
 				
 				<form:button type="submit" class="btn btn-light">Register patient</form:button>
 				
