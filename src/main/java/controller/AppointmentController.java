@@ -69,8 +69,8 @@ public class AppointmentController {
 		System.out.println("la razon es " + appointmentService.checkAppointment(appointment.getAppointmentIdentification()).get("reason"));
 		System.out.println("el numero de id es  " + appointment.getAppointmentIdentification());
 
+		return new ModelAndView("redirect:/appointmentchecking");
 
-		return new ModelAndView("redirect:/appointmentchecking") ;
 		
 	}
 	
@@ -103,15 +103,7 @@ public class AppointmentController {
 	
 	
 	
-	@PostMapping("/registration")
-	public  ModelAndView patientRegistration(@Valid @ModelAttribute("patient") Patient patient, RedirectAttributes ra) {
-		PatientServices patientServices  = new PatientServices();
-		patientServices.savePatient(patient.getFirstName(), patient.getSecondName(), patient.getFirstLastName(), patient.getSecondLastName(), patient.getAge(), patient.getDateOfBirth(), patient.getGender(), patient.getAddress(), patient.getPhoneNumber());
-		
-		return  new ModelAndView("redirect:/");
-	}
-	
-	
+
 	
 	
 	

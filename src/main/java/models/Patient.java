@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.util.List;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -20,7 +22,7 @@ import jakarta.validation.constraints.Size;
 @Component
 @Entity
 @Table(name = "patient")
-public class Patient {
+public class Patient   {
 	@Id
 	@GeneratedValue
 	private int id;
@@ -48,8 +50,8 @@ public class Patient {
 	@NotNull
 	@Digits(integer=13, fraction=0)
 	private long phoneNumber;
-	@NotNull
-	@Past
+	@NotNull(message = "pailas")
+	@Past(message = "not a date")
 	private Date dateOfBirth;
 
 	@OneToMany
