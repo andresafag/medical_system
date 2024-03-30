@@ -27,14 +27,10 @@ public class PatientController {
 	
 		PatientServices patientServices  = new PatientServices();
 		patientServices.savePatient(patient.getFirstName(), patient.getSecondName(), patient.getFirstLastName(), patient.getSecondLastName(), patient.getAge(), patient.getDateOfBirth(), patient.getGender(), patient.getAddress(), patient.getPhoneNumber());
-
 		return  new ModelAndView("redirect:/");
 	}
 	
-	
-	
-	
-	
+
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ModelAndView handleValidationExceptions(

@@ -25,9 +25,6 @@
 	margin: auto;
 }
 
-.monserrat {
-	font-family: 'Fjalla One', sans-serif;
-}
 
 .card-body .btn {
 	font-family: 'Fjalla One', sans-serif;
@@ -51,8 +48,291 @@
 }
 
 
+/* Benefits */
+
+.benefits-box {
+	border: 1px solid antiquewhite;	
+	margin-top: 15px;
+	width: 80%;
+	height: auto;
+	margin: 15px auto auto auto;
+	padding: 3%;
+	font-family: 'Rubik', sans-serif;
+	line-break: loose;
+	word-spacing: 2px;
+	line-height: 1.5;
+	border-radius: 7%;
+	font-weight: 600;
+	background-color: rgb(253, 245, 236);
+}
 
 
+
+/* Appointments */
+
+.appointments-box {
+	width: 50%;
+	height: auto;
+	margin: 15px auto auto auto;
+	position: relative;
+	display: flex;
+}
+
+appointmentdatachange {
+	border: 1px solid blue;
+	width: 50%;
+	height: auto;
+	margin: auto;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.datacontainer {
+	padding: 6%;
+	border-radius: 8%;
+	border: 1px solid rgb(207, 207, 207);
+	background-color: antiquewhite;
+	width: 50%;
+	height: auto;
+	margin: 20px auto auto auto;
+	text-align: center;
+}
+
+.appointmentdata {
+	padding: 2%;
+}
+
+.appointmentdata p {
+	font-family: 'Pacifico', cursive;
+	font-weight: 500;
+}
+
+
+.check-appointment {
+	width: fit-content;
+	height: 50vh;
+	margin: 10px auto;
+	text-align: center;
+	position: relative;
+}
+
+
+.check-appointment label, .check-appointment input, .check-appointment button { 
+	display: block;
+	margin: 10px auto 10px auto;
+}
+
+.check-appointment form {
+	margin-top: 50%;
+	padding: 6%;
+	border-radius: 8%;
+	border: 1px solid rgb(207, 207, 207);
+	background-color: antiquewhite;
+}
+
+.check-appointment form input{
+	border: none;
+}
+
+.schedule-appointment form:hover {
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.check-appointment form:hover {
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.schedule-appointment form{
+	border: 1px solid rgb(207, 207, 207);
+	padding: 6%;
+	border-radius: 8%;
+	background-color: antiquewhite;
+}
+
+
+.schedule-appointment form input{
+	border: none;
+}
+
+.schedule-appointment {
+	width: fit-content;
+	height: 50vh;
+	margin: 10px auto;
+	text-align: center;
+	padding: 3%;
+	position: relative;
+}
+
+.schedule-appointment * {
+	display: block;
+	margin:8px auto;
+}
+
+
+
+/* Labs */
+
+
+.labinfoentry form{
+	margin: 2% auto auto auto;
+	padding: 6%;
+	border-radius: 8%;
+	border: 1px solid rgb(207, 207, 207);
+	background-color: antiquewhite;
+	text-align: center;
+	width: 35%;
+	position: relative;
+}
+
+.labinfoentry form * {
+	display: block;
+	margin:10px auto;
+}
+
+.labinfoentry form input {
+	border: none;
+}
+
+.labinfoentry form .btn {
+	margin-top: 15%;
+}
+
+
+.labinfoentry form:hover{
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.datacontainer {
+	padding: 6%;
+	border-radius: 8%;
+	border: 1px solid rgb(207, 207, 207);
+	background-color: antiquewhite;
+	width: 50%;
+	height: auto;
+	margin: 20px auto auto auto;
+	text-align: center;
+}
+
+.fieldContainer {
+	position: relative;
+}
+
+.datacontainer h3 {
+	margin-bottom: 15px;
+}
+
+.labsdata {
+	padding: 2%;
+}
+
+.labsdata p{
+	font-family: 'Pacifico', cursive;
+}
+
+
+/* Tooltip container */
+
+/* Tooltip text */
+.tooltiptextName, .tooltiptextLastName, .tooltiptextSecondLastName{
+  visibility: hidden;
+  width: 200px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 10px;
+  left: 10px;
+  margin-left: -60px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+/* Imaging */
+
+.imagingdataentry form{
+	margin: 2% auto auto auto;
+	padding: 6%;
+	border-radius: 8%;
+	border: 1px solid rgb(207, 207, 207);
+	background-color: antiquewhite;
+	text-align: center;
+	width: 35%;
+	position: relative;
+}
+
+.imagingdataentry form * {
+	display: block;
+	margin:10px auto;
+}
+
+.imagingdataentry form input {
+	border: none;
+}
+
+.imagingdataentry form .btn {
+	margin-top: 15%;
+}
+
+
+.imagingdataentry form:hover{
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+
+
+.imaginglist {
+	height: 250px;
+	width: auto;
+	margin: 8px;
+}
+
+.imagingBox {
+  	display: grid;
+ 	grid-template-columns: 300px 300px;
+	padding: 8px;
+	margin:15px;
+}
+
+
+
+/* Register Patient */
+
+.registration {
+	padding: 2%;
+	border: 1px solid black;
+	text-align: center;	
+	width: 50%;
+	margin: 5% auto 5% auto;
+}
+
+.form-items {
+	border: 1px solid blue;
+}
+
+.form-items * {
+	display: block;
+	margin:10px auto;
+}
+
+
+
+
+/* Footer */
 
 .footer-container {
 	width: 100%;
@@ -93,5 +373,7 @@
 }
 
 
-
-
+/* Helpers */
+.monserrat {
+	font-family: 'Fjalla One', sans-serif;
+}

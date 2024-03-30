@@ -252,15 +252,16 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 
 	@Override	
 	public int createPatient(String firstName,String secondName, String firstLastName, String secondLastName, String age, String dateOfBirth, String gender, String address,String phoneNumber) {
+
 		
 		int result = 0;
   		//creating session object    
 		Session session=factory.openSession();    
 		Transaction tx = session.beginTransaction();
-		
+		 
 		try {
 		  patient =  new Patient();
-		  patient.setFirstLastName(firstName);
+		  patient.setFirstName(firstName);
 		  patient.setSecondName(secondName);
 		  patient.setFirstLastName(firstLastName);
 		  patient.setSecondLastName(secondLastName);
