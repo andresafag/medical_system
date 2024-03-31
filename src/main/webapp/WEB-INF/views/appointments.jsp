@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <!-- Styles -->
-<link href="resources/css/navigator-style.css" rel="stylesheet">
 <link rel="stylesheet" href="resources/css/style.css">
 <link rel="icon" type="image/x-icon" href="resources/images/caduceus-symbol.png">
 <!-- Google Fonts -->
@@ -26,9 +25,9 @@
 			<form:form action="check-appointment" modelAttribute="appointment"> 
 
 				<form:label path="appointmentIdentification" class="monserrat">Enter an appointment number</form:label>
-				<form:input path="appointmentIdentification" />
+				<form:input path="appointmentIdentification" class="inputBorder" />
 				
-				<button type="submit" class="btn btn-light">Search appointment</button>
+				<button type="submit" class="btn btn-info">Search appointment</button>
 			</form:form>
 			
 		</div>
@@ -39,28 +38,28 @@
 				
 						
 					<form:label path="reason" for="reason" class="monserrat">Give us brief reason of the appointment</form:label>
-					<form:input class="raz" path="reason" name="reason" id="reason"/>
+					<form:input class="inputBorder" path="reason" name="reason" id="reason"  />
 					
 					<form:label path="firstName" class="monserrat">First name</form:label>
-					<form:input path="firstName" />
+					<form:input path="firstName" class="inputBorder"/>
 					
 					<form:label path="lastName" class="monserrat">Last name</form:label>
-					<form:input path="lastName" />
+					<form:input path="lastName" class="inputBorder" />
 					
 					<form:label path="secondLastName" class="monserrat">Second last name</form:label>
-					<form:input path="secondLastName" />
+					<form:input path="secondLastName" class="inputBorder" />
 					
 					<form:label path="specialty" class="monserrat">Specialty</form:label>
-					<form:input path="specialty" />
+					<form:input path="specialty" class="inputBorder" />
 						
 					
-					<form:button type="submit" class="btn btn-light">Submit appointment</form:button>
+					<form:button type="submit" class="btn btn-info">Submit appointment</form:button>
 				 </form:form>
 		
 		</div>
 		
 	</div>
-
+	<%@include file="footer.jsp"%>
 	</div>
 </body>
 <script type="text/javascript" src="resources/js/appointments.js"></script>

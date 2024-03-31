@@ -6,6 +6,20 @@
 }
 
 
+/* Navigation Bar */
+
+.container-fluid .color {
+	border: 1px solid  antiquewhite;
+}
+
+.nav-items  {
+	color: rgb(0, 0, 4);
+	font-family: 'Paytone One', sans-serif;
+	font-weight: 650;
+}
+
+
+
 
 /* Cards container items*/
 .card-container {
@@ -44,14 +58,14 @@
 }
 
 .card-container .card:hover {
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 
 /* Benefits */
 
 .benefits-box {
-	border: 1px solid antiquewhite;	
+	background-color: rgba(250, 235, 215, 0.2);
 	margin-top: 15px;
 	width: 80%;
 	height: auto;
@@ -63,7 +77,6 @@
 	line-height: 1.5;
 	border-radius: 7%;
 	font-weight: 600;
-	background-color: rgb(253, 245, 236);
 }
 
 
@@ -91,7 +104,7 @@ appointmentdatachange {
 	padding: 6%;
 	border-radius: 8%;
 	border: 1px solid rgb(207, 207, 207);
-	background-color: antiquewhite;
+	background-color: rgba(250, 235, 215, 0.3);
 	width: 50%;
 	height: auto;
 	margin: 20px auto auto auto;
@@ -127,31 +140,31 @@ appointmentdatachange {
 	padding: 6%;
 	border-radius: 8%;
 	border: 1px solid rgb(207, 207, 207);
-	background-color: antiquewhite;
+	background-color: rgba(250, 235, 215, 0.3);
 }
 
 .check-appointment form input{
-	border: none;
+	border: 1px solid black;
 }
 
 .schedule-appointment form:hover {
-	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .check-appointment form:hover {
-	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .schedule-appointment form{
 	border: 1px solid rgb(207, 207, 207);
 	padding: 6%;
 	border-radius: 8%;
-	background-color: antiquewhite;
+	background-color: rgba(250, 235, 215, 0.3);
 }
 
 
 .schedule-appointment form input{
-	border: none;
+	border: 1px solid black;
 }
 
 .schedule-appointment {
@@ -175,12 +188,12 @@ appointmentdatachange {
 
 .labinfoentry form{
 	margin: 2% auto auto auto;
-	padding: 6%;
-	border-radius: 8%;
+	padding: 2%;
+	border-radius: 4%;
 	border: 1px solid rgb(207, 207, 207);
-	background-color: antiquewhite;
+	background-color: rgba(250, 235, 215, 0.3);
 	text-align: center;
-	width: 35%;
+	width: fit-content;
 	position: relative;
 }
 
@@ -190,7 +203,7 @@ appointmentdatachange {
 }
 
 .labinfoentry form input {
-	border: none;
+	border: 1px solid black;
 }
 
 .labinfoentry form .btn {
@@ -199,14 +212,14 @@ appointmentdatachange {
 
 
 .labinfoentry form:hover{
-	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .datacontainer {
 	padding: 6%;
 	border-radius: 8%;
 	border: 1px solid rgb(207, 207, 207);
-	background-color: antiquewhite;
+	background-color: rgba(250, 235, 215, 0.3);
 	width: 50%;
 	height: auto;
 	margin: 20px auto auto auto;
@@ -266,12 +279,11 @@ appointmentdatachange {
 
 .imagingdataentry form{
 	margin: 2% auto auto auto;
-	padding: 6%;
+	padding: 2%;
 	border-radius: 8%;
-	border: 1px solid rgb(207, 207, 207);
-	background-color: antiquewhite;
+	background-color: rgba(250, 235, 215, 0.3);
 	text-align: center;
-	width: 35%;
+	width: fit-content;
 	position: relative;
 }
 
@@ -281,7 +293,7 @@ appointmentdatachange {
 }
 
 .imagingdataentry form input {
-	border: none;
+	border: 1px solid black;
 }
 
 .imagingdataentry form .btn {
@@ -290,7 +302,7 @@ appointmentdatachange {
 
 
 .imagingdataentry form:hover{
-	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 
@@ -313,20 +325,32 @@ appointmentdatachange {
 /* Register Patient */
 
 .registration {
-	padding: 2%;
-	border: 1px solid black;
 	text-align: center;	
-	width: 50%;
+	width: fit-content;
+	padding: 2%;
 	margin: 5% auto 5% auto;
+	background-color: rgba(250, 235, 215, 0.3);
 }
 
 .form-items {
-	border: 1px solid blue;
+	margin: 5px;
 }
 
 .form-items * {
 	display: block;
 	margin:10px auto;
+}
+
+.missingFieldsBox {
+	border: solid black 1px;
+	width: fit-content;
+	margin:5% auto auto auto;
+	padding: 1%;
+}
+
+.missingItems {
+	text-align: center;
+	
 }
 
 
@@ -337,8 +361,8 @@ appointmentdatachange {
 .footer-container {
 	width: 100%;
 	height: 250px;
-	border: 1px solid  antiquewhite;
-	margin-top:20px;
+	margin-top:200px;
+	background-color: rgba(250, 235, 215, 0.3);
 	display: flex;
 	justify-content: space-around;
 	padding: 5px;
@@ -377,3 +401,5 @@ appointmentdatachange {
 .monserrat {
 	font-family: 'Fjalla One', sans-serif;
 }
+
+

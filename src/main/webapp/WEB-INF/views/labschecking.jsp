@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <!-- Styles -->
-<link href="resources/css/navigator-style.css" rel="stylesheet">
 <link rel="stylesheet" href="resources/css/style.css">
 <link rel="icon" type="image/x-icon" href="resources/images/caduceus-symbol.png">
 <!-- Google Fonts -->

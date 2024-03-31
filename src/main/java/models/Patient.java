@@ -4,17 +4,17 @@ import java.sql.Date;
 import java.util.List;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Positive;
 
 
 
@@ -26,30 +26,34 @@ public class Patient   {
 	@GeneratedValue
 	private int id;
 	@NotNull
-	@Size(min = 1, max = 20)
+	@Length(min = 2, max = 20)
 	private String firstName;
 	@NotNull
-	@Size(min = 1, max = 20)
+	@Length(min = 2, max = 20)
 	private String secondName;
 	@NotNull
-	@Size(min = 1, max = 20)
+	@Length(min = 2, max = 20)
 	private String firstLastName;
 	@NotNull
-	@Size(min = 1, max = 20)
+	@Length(min = 2, max = 20)
 	private String secondLastName;
 	@NotNull
-	@Digits(integer=2, fraction=0)
+	@Digits(integer=3, fraction=0)
+	@Positive
+	@DecimalMin(value = "1", inclusive = true)
 	private int age;
 	@NotNull
 	@Length(min=1, max=1)
 	private String gender;
 	@NotNull
-	@Size(min = 1, max = 40)
+	@Length(min = 4, max = 40)
 	private String address;
 	@NotNull
 	@Digits(integer=13, fraction=0)
+	@Positive
+	@DecimalMin(value = "1", inclusive = true)
 	private long phoneNumber;
-	@NotNull(message = "pailas")
+	@NotNull
 	@Past(message = "not a date")
 	private Date dateOfBirth;
 

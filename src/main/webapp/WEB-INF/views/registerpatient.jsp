@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <!-- Styles -->
-<link href="resources/css/navigator-style.css" rel="stylesheet">
 <link rel="stylesheet" href="resources/css/style.css">
 <link rel="icon" type="image/x-icon" href="resources/images/caduceus-symbol.png">
 <!-- Bootstrap CDN Links -->
@@ -23,59 +22,59 @@
 			<form:form action="registration" modelAttribute="patient" method="POST">
 				
 				<div class="form-items">
-				<form:label path="firstName" class="monserrat" >Type in your first name</form:label>
+				<form:label path="firstName" class="monserrat" >First name</form:label>
 				<form:input path="firstName"  placeholder="Juanito" style="text-align:center;"/>
 				</div>
 				
 				<div class="form-items">
-				<form:label path="secondName" class="monserrat">Type in your second name</form:label>
+				<form:label path="secondName" class="monserrat">Second name</form:label>
 				<form:input path="secondName" placeholder="Jaime" style="text-align:center;"/>
 				</div>
 				
 				<div class="form-items">				
-				<form:label path="firstLastName" class="monserrat">Type in last name</form:label>
+				<form:label path="firstLastName" class="monserrat">Last name</form:label>
 				<form:input path="firstLastName" placeholder="Jimenez" style="text-align:center;"/>
 				</div>
 				
 				<div class="form-items">
-				<form:label path="secondLastName" class="monserrat">Type in second last name</form:label>
+				<form:label path="secondLastName" class="monserrat">Second last name</form:label>
 				<form:input path="secondLastName" placeholder="Gabino" style="text-align:center;"/>
 				</div>
 				
 				<div class="form-items">
-				<form:label path="age" class="monserrat">Type in your age</form:label>
-				<form:input path="age" placeholder="25" style="text-align:center;"/>
+				<form:label path="age" class="monserrat">Age</form:label>
+				<form:input path="age" value=" " style="text-align:center;"/>
 				</div>
 		
 				<div class="form-items">
-				<form:label path="gender" class="monserrat">Type in a gender</form:label>
+				<form:label path="gender" class="monserrat">Gender</form:label>
 				<form:input path="gender" placeholder="M or F" style="text-align:center;"/>
 				</div>
 				
 				<div class="form-items">
-				<form:label path="dateOfBirth" class="monserrat">Type in your date of birth</form:label>
+				<form:label path="dateOfBirth" class="monserrat">Date of birth</form:label>
 				<form:input path="dateOfBirth" placeholder="1987-02-03" style="text-align:center;"/>
 				</div>
 				
 				<div class="form-items">
-				<form:label path="address" class="monserrat">Type in an address</form:label>
+				<form:label path="address" class="monserrat">Address</form:label>
 				<form:input path="address" placeholder="2354 wetson street" style="text-align:center;"/>
 				</div>
 				
 				<div class="form-items">
-				<form:label path="phoneNumber" class="monserrat">Type in your phone number</form:label>
-				<form:input path="phoneNumber" placeholder="3128779999" style="text-align:center;"/>
+				<form:label path="phoneNumber" class="monserrat">Phone number</form:label>
+				<form:input path="phoneNumber" value="" style="text-align:center;"/>
 				</div>
 				
 				
-				<form:button type="submit" style="margin:2%;" class="btn btn-light">Register patient</form:button>
+				<form:button type="submit" style="margin:2%;" class="btn btn-info">Register patient</form:button>
 				
 			</form:form>
 		</div>
 		
 		
 	</div>
-
+		<%@include file="footer.jsp"%>
 	</div>
 </body>
 </html>

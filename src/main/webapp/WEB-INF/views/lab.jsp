@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <!-- Styles -->
-<link href="resources/css/navigator-style.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
 <link rel="icon" type="image/x-icon" href="resources/images/caduceus-symbol.png">
 <!-- Bootstrap CDN Links -->
@@ -23,19 +22,20 @@
 
 			<form:form action="checklabs" modelAttribute="patient"> 
 				
-				<form:label path="firstName" class="monserrat">Enter your first name</form:label>
+				<form:label path="firstName" class="monserrat">First name</form:label>
 				<form:input path="firstName" />
 				
-				<form:label path="firstLastName" class="monserrat">Enter your last name</form:label>
+				<form:label path="firstLastName" class="monserrat">Last name</form:label>
 				<form:input path="firstLastName" />
 				
-				<form:label path="secondLastName" class="monserrat">Enter your second last name</form:label>
+				<form:label path="secondLastName" class="monserrat">Second last name</form:label>
 				<form:input path="secondLastName" />
 				
-				<button type="submit" class="btn btn-light">Search</button>
+				<button type="submit" class="btn btn-info">Search</button>
 			</form:form>
 	</div>
 </div>
+	<%@include file="footer.jsp"%>
 	</div>
 </body>
 	<script src="resources/js/labsJs.js"></script>

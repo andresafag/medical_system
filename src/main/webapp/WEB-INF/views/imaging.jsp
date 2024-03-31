@@ -7,7 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <!-- Styles -->
-<link href="resources/css/navigator-style.css" rel="stylesheet">
 <link rel="stylesheet" href="resources/css/style.css">
 <link rel="icon" type="image/x-icon" href="resources/images/caduceus-symbol.png">
 <!-- Bootstrap CDN Links -->
@@ -23,25 +22,25 @@
 	<div class="imagingdataentry">
 		<form action="checkImaging" method="POST">
 				<div class="fieldContainer">
-					<label class="monserrat" for="name">Enter your first name</label>
-					<input id="name" type="text" name="name">
+					<label class="monserrat" for="name">First name</label>
+					<input id="name" type="text" name="name" class="inputBorder" >
  					<!-- <span class="tooltiptextName">This field should not include numbers</span> --> 
 				</div>
 				<div class="fieldContainer">
-					<label class="monserrat"  for="lastName">Enter your last name</label>
-					<input id="lastName" type="text" name="lastName">
+					<label class="monserrat"  for="lastName">Last name</label>
+					<input id="lastName" type="text" name="lastName" class="inputBorder" >
 					<!-- <span class="tooltiptextLastName">This field should not include numbers</span> -->
 				</div>
 				<div class="fieldContainer">
-					<label class="monserrat"  for="secondLastName">Enter your second last name</label>
-					<input id="secondLastName" type="text" name="secondLastName">
+					<label class="monserrat"  for="secondLastName">Second last name</label>
+					<input id="secondLastName" type="text" name="secondLastName" class="inputBorder" >
 					<!-- <span class="tooltiptextSecondLastName">This field should not include numbers</span> -->
 				</div>
-				<button type="submit" class="btn btn-light">Check the imaging results</button>
+				<button type="submit" class="btn btn-info">Check the imaging results</button>
 			</form>
 	</div>
 </div>
-     
+     <%@include file="footer.jsp"%>
 </div>
 
 </body>
