@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="resources/css/Style.css" rel="stylesheet">
+<link href="resources/css/style.css" rel="stylesheet">
 <link rel="icon" type="image/x-icon" href="resources/images/caduceus-symbol.png">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <script src="https://kit.fontawesome.com/8b8b86760e.js" crossorigin="anonymous"></script>
@@ -19,13 +19,13 @@
 
 	<c:set var="missingFieldHeader" value="<%= errorAttributes %>" />
 	<div class="missingFieldsBox">
-			<h3>This are the misssing fields:</h3>
-	<c:forEach var="country" items="${missingFieldHeader}">   
+			<h3>These are the misssing fields:</h3>
+	<c:forEach var="missing" items="${missingFieldHeader}">   
    			<div class="missingItems">
-   				<p>${country.key}</p>
+   				<p>${missing.key}</p>
    			</div>
 	</c:forEach> 
-		<button onclick="goBack()">Go back</button>
+		<button class="btnn" onclick="goBack()">Go back</button>
 	</div>
 	</div>
 </body>

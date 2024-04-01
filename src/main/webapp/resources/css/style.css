@@ -8,7 +8,7 @@
 
 /* Navigation Bar */
 
-.container-fluid .color {
+.color {
 	border: 1px solid  antiquewhite;
 }
 
@@ -19,7 +19,11 @@
 }
 
 
-
+.container-fluid {
+	position: relative;
+	border: 1px solid blue;
+	
+}
 
 /* Cards container items*/
 .card-container {
@@ -216,11 +220,11 @@ appointmentdatachange {
 }
 
 .datacontainer {
-	padding: 6%;
+	padding: 2%;
 	border-radius: 8%;
 	border: 1px solid rgb(207, 207, 207);
 	background-color: rgba(250, 235, 215, 0.3);
-	width: 50%;
+	width: fit-content;
 	height: auto;
 	margin: 20px auto auto auto;
 	text-align: center;
@@ -346,6 +350,7 @@ appointmentdatachange {
 	width: fit-content;
 	margin:5% auto auto auto;
 	padding: 1%;
+	text-align: center;
 }
 
 .missingItems {
@@ -360,8 +365,8 @@ appointmentdatachange {
 
 .footer-container {
 	width: 100%;
-	height: 250px;
-	margin-top:200px;
+	height: 220px;
+	margin-top: 270px;
 	background-color: rgba(250, 235, 215, 0.3);
 	display: flex;
 	justify-content: space-around;

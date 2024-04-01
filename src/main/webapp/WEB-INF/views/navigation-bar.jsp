@@ -1,5 +1,5 @@
 	<nav class="navbar navbar-expand-lg bg-body-tertiary color">
-  <div class="container-fluid">
+  <div class="container-nav">
     <a class="navbar-brand" href="/webmedical">
       <img src="resources/images/caduceus-symbol.png" alt="medicalsymbol" width="60" height="80" class="d-inline-block align-text-top">
     </a>
