@@ -31,7 +31,7 @@ public class MainController {
 	
 	
 	@GetMapping("/appointments")
-	public String appointments(@ModelAttribute("binding") BindingClass binding, @ModelAttribute("appointment") Appointment appointment) { //@ModelAttribute("appointment") Appointment appointment
+	public String appointments(@ModelAttribute("binding") BindingClass binding, @ModelAttribute("appointment") Appointment appointment) { 
 		return "appointments";
 	}
 	
@@ -60,6 +60,3 @@ public class MainController {
 
 
 }
-
-
-

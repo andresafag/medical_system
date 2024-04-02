@@ -19,15 +19,17 @@
 <body>
 	<div class="container-fluid">
 	<%@include file="navigation-bar.jsp"%>
-
+	<h3 class="header">Check or schedule your appointment here</h3>
 	<div class="appointments-box">
+		
 		<div class="check-appointment">
+			
 			<form:form action="check-appointment" modelAttribute="appointment"> 
-
-				<form:label path="appointmentIdentification" class="monserrat">Enter an appointment number</form:label>
-				<form:input path="appointmentIdentification" class="inputBorder" />
 				
-				<button type="submit" class="btn btn-info">Search appointment</button>
+				<form:label path="appointmentIdentification" class="monserrat">Enter an appointment number</form:label>
+				<form:input path="appointmentIdentification" class="inputBorder"/>
+				
+				<button type="submit" class="btn btn-info">Go!</button>
 			</form:form>
 			
 		</div>
@@ -53,7 +55,7 @@
 					<form:input path="specialty" class="inputBorder" />
 						
 					
-					<form:button type="submit" class="btn btn-info">Submit appointment</form:button>
+					<form:button type="submit" class="btn btn-info">Go!</form:button>
 				 </form:form>
 		
 		</div>

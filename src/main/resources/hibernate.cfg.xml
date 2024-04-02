@@ -22,7 +22,6 @@
 	<mapping class="models.Patient" />
 	<mapping class="models.MedicalRecord" />
 	<mapping class="models.Appointment" />
-	<mapping class="models.PrescriptionPills" />
 	<mapping class="models.Labs" />
 
 	</session-factory>

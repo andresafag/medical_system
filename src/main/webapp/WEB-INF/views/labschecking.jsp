@@ -32,7 +32,7 @@
 				<p><strong><c:out value="Time: "/></strong>${time}</p>
 			</div>
     	</c:when>
-    	
+    			<p><%= request.getAttribute("time") %></p>
     	<c:otherwise>
         	<p>There are no results for this patient</p>
     	</c:otherwise>

@@ -57,25 +57,6 @@ public class RandomData implements RandomDataGenerator{
  		
 		return newDateString;
 	}
-	
-	
-	
-	
-	
-	
-
-	@Override
-	public String getCurrentDate() {
-		// TODO Auto-generated method stub
-		
-		return null;
-	}
-
-
-
-
-
-
 
 	@Override
 	public Long getRandomIdentifier() {

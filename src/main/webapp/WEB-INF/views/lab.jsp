@@ -16,22 +16,29 @@
 <body>
 	<div class="container-fluid">
 	<%@include file="navigation-bar.jsp"%>
-
+	
+	<h3 class="header">Check your lab results here</h3>
 <div class="labs-box">
+
 	<div class="labinfoentry">
 
 			<form:form action="checklabs" modelAttribute="patient"> 
-				
-				<form:label path="firstName" class="monserrat">First name</form:label>
-				<form:input path="firstName" />
-				
-				<form:label path="firstLastName" class="monserrat">Last name</form:label>
-				<form:input path="firstLastName" />
-				
-				<form:label path="secondLastName" class="monserrat">Second last name</form:label>
-				<form:input path="secondLastName" />
-				
-				<button type="submit" class="btn btn-info">Search</button>
+				<div class="fieldContainer">
+					<form:label path="firstName" class="monserrat">First name</form:label>
+					<form:input id="name" path="firstName" />
+					<span class="tooltiptextName">This field should not include numbers</span>
+				</div>
+				<div class="fieldContainer">
+					<form:label path="firstLastName" class="monserrat">Last name</form:label>
+					<form:input id="lastName" path="firstLastName" />
+					<span class="tooltiptextLastName">This field should not include numbers</span>
+				</div>
+				<div class="fieldContainer">
+					<form:label path="secondLastName" class="monserrat">Second last name</form:label>
+					<form:input id ="secondLastName" path="secondLastName" />
+					<span class="tooltiptextSecondLastName">This field should not include numbers</span>
+				</div>
+				<button type="submit" class="btn btn-info">Go!</button>
 			</form:form>
 	</div>
 </div>

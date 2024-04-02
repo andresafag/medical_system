@@ -17,7 +17,7 @@
 <body>
 	<div class="container-fluid">
 	<%@include file="navigation-bar.jsp"%>
-
+	<h3 class="header">Check your imaging here</h3>
 <div class="imaging-box">
 	<div class="imagingdataentry">
 		<form action="checkImaging" method="POST">
@@ -36,7 +36,7 @@
 					<input id="secondLastName" type="text" name="secondLastName" class="inputBorder" >
 					<!-- <span class="tooltiptextSecondLastName">This field should not include numbers</span> -->
 				</div>
-				<button type="submit" class="btn btn-info">Check the imaging results</button>
+				<button type="submit" class="btn btn-info">Go!</button>
 			</form>
 	</div>
 </div>

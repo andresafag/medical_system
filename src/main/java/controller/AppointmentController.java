@@ -93,25 +93,11 @@ public class AppointmentController {
 	
 
 	
-//	@PutMapping("/registration")
-//	public  ModelAndView patientRegistration(@RequestParam Map<String,String> allParams) {
-//		AppointmentsServices appointmentService = new AppointmentsServices();
-//		
-//		appointmentService.registerPatient(allParams.get("firstName"), allParams.get("secondName"), allParams.get("firstLastName"), allParams.get("secondLastName"), allParams.get("age"), allParams.get("dateOfBirth"), allParams.get("gender"), allParams.get("address"), allParams.get("phoneNumber"));
-//		return  new ModelAndView("redirect:/");
-//	}
-	
-	
-	
-
-	
-	
-	
 	//Delete requests ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	
 	@DeleteMapping("/delete-appointment")
-	public ModelAndView deleteAppointment(@ModelAttribute("appointment") Appointment appointment, RedirectAttributes ra) {//@RequestParam("identifier") String identifier
+	public ModelAndView deleteAppointment(@ModelAttribute("appointment") Appointment appointment, RedirectAttributes ra) {
 		String page = "";
 		AppointmentsServices appointmentService = new AppointmentsServices();
 		
@@ -142,20 +128,3 @@ public class AppointmentController {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

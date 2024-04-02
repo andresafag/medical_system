@@ -3,7 +3,6 @@ package dao;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.hibernate.Session;
@@ -41,8 +40,6 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 	
 	public Map<String,Object> appointmentById(Long id){
 	  		    Session session=factory.openSession();    
-//	  		    Transaction tx = session.beginTransaction();
-	  		  		
 	  		    
 	  		    @SuppressWarnings("deprecation")
 		  		Query query = session.createQuery("FROM Appointment P WHERE P.appointmentIdentification=:id");
@@ -99,15 +96,7 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 			    querySpecialtyOnSpecificDate.setParameter("date", Date.valueOf(randomData.generateRandomDate())); 
 			    querySpecialtyOnSpecificDate.setParameter("specialty", specialty);
 
-//			    if (querySpecialtyOnSpecificDate.getResultList().size() > 0) {
-//				    Iterator iter = querySpecialtyOnSpecificDate.getResultList().iterator();
-//				    
-//				    while (iter.hasNext()) {
-//				    	Appointment qux = (Appointment) iter.next();  // fetch the object
-//			            // something we couldnt express in the query
-//			            System.out.println("identificacion " + qux.getAppointmentIdentification());
-//			            
-//				    } 
+
 			    int appointmentChecking =  querySpecialtyOnSpecificDate.getResultList().size();
 			    System.out.println(appointmentChecking > 0);
 			    
@@ -314,9 +303,6 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 		return result;
 	}
 
-
-
-
 	@Override
 	public int getPatientId(String name, String lastName, String secondLastName) {
 		int result = 0;
@@ -344,25 +330,3 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 	
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

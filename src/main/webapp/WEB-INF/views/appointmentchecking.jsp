@@ -50,6 +50,7 @@
 
 			
 		</div>
+		<%@include file="footer.jsp"%>
 	</div>
 </body>
 <script type="text/javascript" src="resources/js/javascript.js"></script>

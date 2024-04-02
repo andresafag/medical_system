@@ -67,7 +67,7 @@
 				</div>
 				
 				
-				<form:button type="submit" style="margin:2%;" class="btn btn-info">Register patient</form:button>
+				<form:button type="submit" style="margin:2%;" class="btn btn-info">Go!</form:button>
 				
 			</form:form>
 		</div>
