@@ -1,13 +1,10 @@
 package models;
 
 import java.sql.Date;
-import java.util.HashMap;
-import java.util.Map;
-
-import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,9 +19,10 @@ public class Labs {
 	private String time;
 	private String address;
 	private String  intitution;
-	@ElementCollection
-	private Map<String, String> results = new HashMap<String,String>();
+	@ManyToOne
+	private Patient patient;
 	
+
 	public int getId() {
 		return id;
 	}
@@ -62,17 +60,17 @@ public class Labs {
 	public void setIntitution(String intitution) {
 		this.intitution = intitution;
 	}
-	public Map<String, String> getResults() {
-		return results;
-	}
-	public void setResults(Map<String, String> results) {
-		this.results = results;
-	}
 	public String getTime() {
 		return time;
 	}
 	public void setTime(String time) {
 		this.time = time;
+	}
+	public Patient getPatient() {
+		return patient;
+	}
+	public void setPatient(Patient patient) {
+		this.patient = patient;
 	}
 	
 	

@@ -16,8 +16,6 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Positive;
 
-
-
 @Component
 @Entity
 @Table(name = "patient")
@@ -56,24 +54,19 @@ public class Patient   {
 	@NotNull
 	@Past(message = "not a date")
 	private Date dateOfBirth;
-
-	@OneToMany
-	@JoinColumn(name="medicalpatientrelation")
-	private List<MedicalRecord> medicalRecord;
-	
-	@OneToMany
-	@JoinColumn(name="labspatientrelation")
-	private List<Labs> labs;
 	
 	@OneToMany(mappedBy = "patient")
+	private List<Labs> labs;
+	
+	@OneToMany
+	@JoinColumn(name="appointmentpatientrelation")
 	private List<Appointment> appointments;
 	
-	
-	
+
 	public Patient() {
 		
 	}
-	
+
 	public Patient(int id) {
 		this.id=id;
 	}
@@ -97,7 +90,6 @@ public class Patient   {
 	public void setSecondName(String secondName) {
 		this.secondName = secondName;
 	}
-
 	
 	public String getFirstLastName() {
 		return firstLastName;
@@ -136,29 +128,26 @@ public class Patient   {
 		this.phoneNumber = phoneNumber;
 	}
 	
-	public List<MedicalRecord> getMedicalRecord() {
-		return medicalRecord;
-	}
-	public void setMedicalRecord(List<MedicalRecord> medicalRecord) {
-		this.medicalRecord = medicalRecord;
-	}
 	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	public List<Labs> getLabs() {
-		return labs;
-	}
-	public void setLabs(List<Labs> labs) {
-		this.labs = labs;
-	}
+
 	public List<Appointment> getAppointments() {
 		return appointments;
 	}
 	public void setAppointments(List<Appointment> appointments) {
 		this.appointments = appointments;
+	}
+
+	public List<Labs> getLabs() {
+		return labs;
+	}
+
+	public void setLabs(List<Labs> labs) {
+		this.labs = labs;
 	}
 	
 	

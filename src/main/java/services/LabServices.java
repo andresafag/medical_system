@@ -14,4 +14,7 @@ public class LabServices {
 		Dao dao =  new Dao();
 		return dao.checkLabs(name, lastName, secondLastName);
 	}
+	
+	
+	
 }

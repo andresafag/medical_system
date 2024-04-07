@@ -29,6 +29,9 @@ public class LabsController {
 		String addressConvertedToString = String.valueOf(model.getAttribute("address"));
 		String dateConvertedToString = String.valueOf(model.getAttribute("date"));
 		String timeConvertedToString = String.valueOf(model.getAttribute("time"));
+		
+		
+		
 		return "labschecking";
 	}
 	
@@ -37,7 +40,7 @@ public class LabsController {
 	public ModelAndView checkLabs(@ModelAttribute("patient") Patient patient, RedirectAttributes ra) {
 		LabServices labService = new LabServices();
 		System.out.println("nombre " + patient.getFirstName());
-			Map<String, Object> mapLabItems= labService.checkLabResults(patient.getFirstName(), patient.getFirstLastName(), patient.getSecondLastName());
+		Map<String, Object> mapLabItems= labService.checkLabResults(patient.getFirstName(), patient.getFirstLastName(), patient.getSecondLastName());
 			
 			if (mapLabItems.size() > 0) {
 			ra.addFlashAttribute("identifier",mapLabItems.get("identification"));

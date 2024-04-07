@@ -37,7 +37,8 @@
 		<div class="schedule-appointment" >
 				 
 				 <form:form action="schedule-appointment" modelAttribute="binding">
-				
+					
+					<input type="hidden" name="_method" value="PUT">
 						
 					<form:label path="reason" for="reason" class="monserrat">Give us brief reason of the appointment</form:label>
 					<form:input class="inputBorder" path="reason" name="reason" id="reason"  />

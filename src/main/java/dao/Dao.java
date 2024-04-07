@@ -3,6 +3,7 @@ package dao;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.hibernate.Session;
@@ -19,13 +20,16 @@ import interfaces.ImagingInter;
 import interfaces.LabsInter;
 import interfaces.PatientTransactions;
 import models.Appointment;
+import models.Labs;
 import models.Patient;
+//import models.Patient_labs;
 import services.RandomData;
 
 
 @Repository
 public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, ImagingInter{
 	
+
 	@Autowired
 	private Patient patient;
 	@Autowired
@@ -72,7 +76,7 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 	@Override
 	public String scheduleAppointment(String firstName,String lastName, String secondLastName,  String reason, String specialty) {
 		String result;
-
+		
 		    Session session=factory.openSession();    
 		    Transaction tx = session.beginTransaction();
 		    System.out.println("desde el backend " + firstName + " " + lastName);
@@ -273,8 +277,6 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 	}
 
 
-
-
 	@Override
 	public boolean doesPatientExist(String firstName,String secondName, String firstLastName, String secondLastName, String age, String dateOfBirth) {
 		boolean result = false;
@@ -315,7 +317,6 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 		  queryPatient.setParameter("fln", lastName);
 		  queryPatient.setParameter("sln", secondLastName);
 		  
-		  System.out.println("falso o verdadero " + queryPatient.list().isEmpty());
 		  if (queryPatient.list().isEmpty() == false) {
 			  patient = (Patient) queryPatient.uniqueResult();
 			  System.out.println("lo que retorna " + patient.getId());
@@ -327,6 +328,8 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 		return result;
 		
 	}
+	
+	
 	
 	
 }

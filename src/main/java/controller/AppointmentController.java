@@ -77,9 +77,9 @@ public class AppointmentController {
 	
 	//Put requests ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 	
-	@PostMapping("/schedule-appointment")
+	@PutMapping("/schedule-appointment")
 	public ResponseEntity<String> scheduleAppointment(@RequestBody MultiValueMap<String,String> paramMap) {//@RequestBody MultiValueMap<String,String> paramMap
-
+		System.out.println("estamoss bro");
 		AppointmentsServices appointmentService = new AppointmentsServices();
 		String res = appointmentService.scheduleAppointment(paramMap.get("firstName").get(0), paramMap.get("lastName").get(0), paramMap.get("secondLastName").get(0),paramMap.get("reason").get(0), paramMap.get("specialty").get(0));
 		HttpStatus ht = null;

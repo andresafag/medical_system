@@ -1,5 +1,6 @@
 const form = document.querySelector(".schedule-appointment form")
 const appointmentsBox = document.querySelector(".appointments-box")
+const headerClass = document.querySelector(".header")
 
 
 
@@ -20,6 +21,7 @@ const appointmentsBox = document.querySelector(".appointments-box")
   		}).then((response)=>{
     			if(response.status == 200){
 					 appointmentsBox.innerHTML = '';
+					 headerClass.innerHTML = '';
 					 let resultTemplate =  `<h5>The information has been saved successfully<h5>`
 					 setTimeout(function myGreeting() {
   						window.location = "http://localhost:8080/webmedical/"

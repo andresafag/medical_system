@@ -22,7 +22,7 @@
 		<div class="datacontainer">
 		<c:choose>
    	 	<c:when test="${identifier gt 0}">
-        <h3 class="monserrat">Lab details</h3>
+       		<h3 class="monserrat">Lab details</h3>
 			<div class="labsdata">
 				<p><strong><c:out value="Lab's identifier: "/></strong> ${identifier}</p>
 				<p><strong><c:out value="Lab's name: "/></strong> ${labname}</p>
@@ -32,7 +32,6 @@
 				<p><strong><c:out value="Time: "/></strong>${time}</p>
 			</div>
     	</c:when>
-    			<p><%= request.getAttribute("time") %></p>
     	<c:otherwise>
         	<p>There are no results for this patient</p>
     	</c:otherwise>
