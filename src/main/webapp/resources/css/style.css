@@ -24,6 +24,14 @@
 	
 }
 
+.nav-style a{
+	color: rgb(0, 0, 255);
+	font-size: larger;
+}
+
+.nav-style a:hover{
+	color: rgb(0, 0, 160);
+}
 /* Cards container items*/
 .card-container {
 	display: grid;
@@ -34,6 +42,13 @@
 	margin-top: 20px;
 	justify-content:center;
 	padding: 30px;
+}
+
+
+@media only screen and (max-width: 750px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card  img {
@@ -54,9 +69,29 @@
 .card {
 	padding: 10px;
 	margin: auto;
-	
 }
 
+.card:first-child {
+	background-image: url("../images/redcross.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.card:nth-child(2) {
+	background-image: url("../images/book.jpg");
+}
+
+.card:nth-child(3) {
+	background-image: url("../images/syringe.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.card:nth-child(4) {
+	background-image: url("../images/xray.webp");
+}
 
 .background-color-card {
 	background-color: antiquewhite;
@@ -145,11 +180,16 @@ appointmentdatachange {
 	padding: 6%;
 	border-radius: 8%;
 	border: 1px solid rgb(207, 207, 207);
-	background-color: rgba(250, 235, 215, 0.3);
+	background-image: url("../images/hospital_wallpaper.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .check-appointment form input{
 	border: 1px solid black;
+	width: 90%;
+	text-align: center;
 }
 
 .schedule-appointment form:hover {
@@ -164,12 +204,17 @@ appointmentdatachange {
 	border: 1px solid rgb(207, 207, 207);
 	padding: 6%;
 	border-radius: 8%;
-	background-color: rgba(250, 235, 215, 0.3);
+	background-image: url("../images/hospital_wallpaper.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: auto;
 }
 
 
 .schedule-appointment form input{
 	border: 1px solid black;
+	width: 90%;
+	text-align: center;
 }
 
 .schedule-appointment {
@@ -199,6 +244,10 @@ appointmentdatachange {
 	text-align: center;
 	width: fit-content;
 	position: relative;
+	background-image: url("../images/pediatric.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .labinfoentry form * {
@@ -208,6 +257,7 @@ appointmentdatachange {
 
 .labinfoentry form input {
 	border: 1px solid black;
+	text-align: center;
 }
 
 .labinfoentry form .btn {
@@ -290,6 +340,11 @@ appointmentdatachange {
 	width: fit-content;
 	position: relative;
 	border: 1px solid rgb(207, 207, 207);
+	background-image: url("../images/radiologie.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	
 }
 
 .imagingdataentry form * {
@@ -299,6 +354,7 @@ appointmentdatachange {
 
 .imagingdataentry form input {
 	border: 1px solid black;
+	text-align: center;
 }
 
 .imagingdataentry form .btn {
@@ -404,11 +460,20 @@ appointmentdatachange {
 
 
 /* Helpers */
-.monserrat {
-	font-family: 'Fjalla One', sans-serif;
-}
 
 .header {
 	text-align: center;
 	margin-top: 2%;
+}
+
+.barlow {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.spicy {
+	font-family: "Spicy Rice", serif;
+  	font-weight: 400;
+  	font-style: normal;
 }

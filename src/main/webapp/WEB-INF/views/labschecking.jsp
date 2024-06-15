@@ -7,6 +7,7 @@
 <!-- Styles -->
 <link rel="stylesheet" href="resources/css/style.css">
 <link rel="icon" type="image/x-icon" href="resources/images/caduceus-symbol.png">
+<link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">

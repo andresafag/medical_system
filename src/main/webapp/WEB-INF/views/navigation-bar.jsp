@@ -7,18 +7,18 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active nav-items" aria-current="page" href="/webmedical/appointments">Appointments</a>
+      <ul class="navbar-nav nav-style">
+       <li class="nav-item">
+          <a class="nav-link nav-items spicy" href="/webmedical/benefits">Benefits</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-items" href="/webmedical/labs">Labs</a>
+          <a class="nav-link nav-items spicy" aria-current="page" href="/webmedical/appointments">Appointments</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-items" href="/webmedical/imaging">Imaging</a>
+          <a class="nav-link nav-items spicy" href="/webmedical/labs">Labs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-items" href="/webmedical/benefits">Benefits</a>
+          <a class="nav-link nav-items spicy" href="/webmedical/imaging">Imaging</a>
         </li>
       </ul>
     </div>

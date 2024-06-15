@@ -1,9 +1,11 @@
 const form = document.querySelector(".schedule-appointment form")
 const appointmentsBox = document.querySelector(".appointments-box")
 const headerClass = document.querySelector(".header")
+const appointmentIdentification = document.querySelector("#appointmentIdentification")
 
-
-
+window.addEventListener("load", ()=>{
+	appointmentIdentification.setAttribute("value","")
+})
 
 
 

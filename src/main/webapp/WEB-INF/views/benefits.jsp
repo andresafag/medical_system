@@ -7,7 +7,9 @@
 <link rel="stylesheet" href="resources/css/style.css">
  <!-- Main Icon -->
 <link rel="icon" type="image/x-icon" href="resources/images/caduceus-symbol.png">
- <!-- Bootstrap CDN links -->
+<link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<!-- Bootstrap CDN Links-->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <script src="https://kit.fontawesome.com/8b8b86760e.js" crossorigin="anonymous"></script>
 <body>
@@ -15,27 +17,8 @@
 	<%@include file="navigation-bar.jsp"%>
 
 <div class="benefits-box">
-	<div>
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took 
-		a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-		It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including 
-		versions of Lorem Ipsum.
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took 
-		a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-		It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including 
-		versions of Lorem Ipsum.
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took 
-		a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-		It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including 
-		versions of Lorem Ipsum.
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took 
-		a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-		It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including 
-		versions of Lorem Ipsum.
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took 
-		a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-		It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including 
-		versions of Lorem Ipsum.
+	<div class="barlow">
+	Health care professionals' use of mobile devices is transforming clinical practice. Numerous medical software applications can now help with tasks ranging from information and time management to clinical decision-making at the point of care. The launch of a mobile app in the healthcare industry is a good solution for reducing fees for patients as many of the tasks can be performed via the app itself.Moreover, interacting with the hospital via an app, patients can see the costs in real-time. So, when they will get a final bill, it won't be an unpleasant surprise for them and their families as they have an opportunity to plan their budget in advance. IoT (or Internet of Things) is actively conquering more and more market segments. The medical segment is definitely not an exception. The IoT healthcare market is growing extremely fast and according to some estimates, the market will achieve the level of $136.8 billion already in 2021. Such an advanced technology as IoT is able to facilitate a wide range of tasks for healthcare staff, simplifying access to huge volumes of data via smart devices and equipment that, for example, can help to track patient' vital parameters in real-time.As health wearables and fitness trackers are gaining popularity, we can suppose that more serious professional devices will soon be actively gaining popularity among a wide audience as well.
 	</div>
 </div>
 	
