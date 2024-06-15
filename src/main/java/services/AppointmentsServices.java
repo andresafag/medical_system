@@ -11,10 +11,16 @@ public class AppointmentsServices {
 		
 	
 	public Map<String,Object> checkAppointment(long id) {
-//		Long idLong = Long.parseLong(id);
 		Dao dao =  new Dao();
 		return dao.appointmentById(id);
 	}
+	
+	
+	public Long checkAppointmentNameBased(String firstName, String lastName, String secondSurname) {
+		Dao dao =  new Dao();
+		return dao.appointmentByName(firstName, lastName,secondSurname);
+	}
+	
 	
 	public int  deleteAppointment(String id) {
 		Long idLong = Long.parseLong(id);

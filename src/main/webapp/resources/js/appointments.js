@@ -24,18 +24,11 @@ window.addEventListener("load", ()=>{
     			if(response.status == 200){
 					 appointmentsBox.innerHTML = '';
 					 headerClass.innerHTML = '';
-					 let resultTemplate =  `<h5>The information has been saved successfully<h5>`
-					 setTimeout(function myGreeting() {
-  						window.location = "http://localhost:8080/webmedical/"
-  						window.onbeforeunload = function() {
-						 window.location = "http://localhost:8080/webmedical/"
-					  };
-					 }, 3000);
+					 let resultTemplate =  `<h5>The information has been saved successfully. Your appointmet id is ${response.headers.entries().next().value[1]}<h5>`
 						appointmentsBox.innerHTML += resultTemplate
 					 
 				} else  {
-					window.location = "http://localhost:8080/webmedical/register-patient"
-					
+					window.location = "http://localhost:8080/webmedical/register-patient"					
 				}
 		  })
   })

@@ -40,6 +40,32 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 	private final SessionFactory factory=cfg.buildSessionFactory();  
 
 	
+	
+	
+	public Long appointmentByName(String firstName, String lastName, String secondSurname){
+		Session session=factory.openSession();    
+		
+		try {
+		    @SuppressWarnings("deprecation")
+	  		Query query = session.createQuery("FROM Appointment P INNER JOIN P.patient WHERE patient.firstName=:name AND patient.firstLastName=:firstSurname AND patient.secondLastName=:secondSurname");
+			query.setParameter("name", firstName);    
+			query.setParameter("firstSurname", lastName);    
+			query.setParameter("secondSurname", secondSurname);
+			
+			appointment = (Appointment) query.list().get(query.list().size()-1);
+			
+			System.out.println(appointment.getAppointmentIdentification());
+			
+			session.close();
+
+		} catch (Throwable t) {
+		  throw t;
+		}
+		return appointment.getAppointmentIdentification();
+	}
+	
+
+	
 	// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 	
 	public Map<String,Object> appointmentById(Long id){

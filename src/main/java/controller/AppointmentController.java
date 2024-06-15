@@ -2,6 +2,7 @@ package controller;
 
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -78,17 +79,26 @@ public class AppointmentController {
 	//Put requests ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 	
 	@PutMapping("/schedule-appointment")
-	public ResponseEntity<String> scheduleAppointment(@RequestBody MultiValueMap<String,String> paramMap) {//@RequestBody MultiValueMap<String,String> paramMap
+	public ResponseEntity scheduleAppointment(@RequestBody MultiValueMap<String,String> paramMap){
 		System.out.println("estamoss bro");
 		AppointmentsServices appointmentService = new AppointmentsServices();
 		String res = appointmentService.scheduleAppointment(paramMap.get("firstName").get(0), paramMap.get("lastName").get(0), paramMap.get("secondLastName").get(0),paramMap.get("reason").get(0), paramMap.get("specialty").get(0));
+		
+		Long appid = appointmentService.checkAppointmentNameBased(paramMap.get("firstName").get(0), paramMap.get("lastName").get(0), paramMap.get("secondLastName").get(0));
+		
+		
 		HttpStatus ht = null;
 		if (res == "saved") {
 			ht = HttpStatus.OK;
 		} else {
 			ht = HttpStatus.BAD_REQUEST;
 		}
-		return new ResponseEntity<>(ht);
+		
+		
+		HttpHeaders responseHeaders = new HttpHeaders();
+	    responseHeaders.set("appid", String.valueOf(appid));
+
+		return ResponseEntity.status(ht).headers(responseHeaders).build();
 	}
 	
 

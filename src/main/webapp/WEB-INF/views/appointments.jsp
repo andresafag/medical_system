@@ -47,7 +47,7 @@
 					
 					<form:input path="lastName" class="inputBorder" type="text" placeholder="last name" required="required" />
 					
-					<form:input path="secondLastName" class="inputBorder" type="text" placeholder="second last name" required="required" />
+					<form:input path="secondLastName" class="inputBorder" type="text" placeholder="second surname" required="required" />
 					
 					<form:input path="specialty" class="inputBorder" type="text" placeholder="specialty" required="required" />
 						

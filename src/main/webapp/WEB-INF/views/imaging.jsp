@@ -32,7 +32,7 @@
 					<!-- <span class="tooltiptextLastName">This field should not include numbers</span> -->
 				</div>
 				<div class="fieldContainer">
-					<input id="secondLastName" type="text" name="secondLastName" placeholder="second last name" class="inputBorder" >
+					<input id="secondLastName" type="text" name="secondLastName" placeholder="second surname" class="inputBorder" >
 					<!-- <span class="tooltiptextSecondLastName">This field should not include numbers</span> -->
 				</div>
 				<button type="submit" class="btn btn-info">Go!</button>

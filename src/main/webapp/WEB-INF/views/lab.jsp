@@ -19,7 +19,7 @@
 	<div class="container-fluid">
 	<%@include file="navigation-bar.jsp"%>
 	
-	<h3 class="header spicy"> 💉 Lab results  💉</h3>
+	<h3 class="header spicy"> 💉 Labs 💉</h3>
 <div class="labs-box">
 
 	<div class="labinfoentry">
@@ -34,7 +34,7 @@
 					<span class="tooltiptextLastName">This field should not include numbers</span>
 				</div>
 				<div class="fieldContainer">
-					<form:input id ="secondLastName" path="secondLastName" type="text" placeholder="second last name" required="required" />
+					<form:input id ="secondLastName" path="secondLastName" type="text" placeholder="second surname" required="required" />
 					<span class="tooltiptextSecondLastName">This field should not include numbers</span>
 				</div>
 				<button type="submit" class="btn btn-info">Go!</button>
