@@ -38,8 +38,6 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 	private final Configuration cfg = new Configuration().configure();
 	private final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().build(); 
 	private final SessionFactory factory=cfg.buildSessionFactory();  
-
-	
 	
 	
 	public Long appointmentByName(String firstName, String lastName, String secondSurname){
@@ -95,8 +93,6 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 	}
 	
 	
-	
-	
 	// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	@Override
@@ -107,7 +103,6 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 		    Transaction tx = session.beginTransaction();
 		    System.out.println("desde el backend " + firstName + " " + lastName);
 		   
-//		    AQUI SE BUSCA AL PACIENTE. SI NO EXISTE SE LE PIEDE QUE AGREGUE SUS DATOS PERSONALES A LA BASE DE DATOS Y SI EXISTE SE PROCEDE AL SIGUIENTE PASO
 		    @SuppressWarnings("deprecation")
 		    Query queryPatient = session.createQuery("FROM Patient P WHERE P.firstName=lower(:fn) AND P.firstLastName=lower(:fl) AND P.secondLastName=:sl");
 		    queryPatient.setParameter("fn", firstName);
@@ -119,7 +114,6 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 				result = "no patient";
 				
 			} else {
-//			    SE BUSCA LAS CITAS PROGRAMADAS PARA X FECHA	
 				
 			    @SuppressWarnings("deprecation")
 			    Query querySpecialtyOnSpecificDate = session.createQuery("FROM Appointment A WHERE A.appointmentDate=:date AND A.specialty=lower(:specialty)");
@@ -172,7 +166,6 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 	}
 	
 	
-	
 	// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 	
 
@@ -191,8 +184,7 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 	    HashMap<String, Object> labsData = new HashMap<String, Object>();
   		
   		if (!query.list().isEmpty()) {
-  			patient = (Patient) query.uniqueResult();
-	  		
+  			patient = (Patient) query.uniqueResult();		
 	  		
 	  		int labIndex = patient.getLabs().size() - 1;
 	  		
@@ -203,7 +195,6 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 	        labsData.put("date",  patient.getLabs().get(labIndex).getDate());
 	        labsData.put("time",  patient.getLabs().get(labIndex).getTime());
       
-
 		} 
   		
   		session.close();  
@@ -235,8 +226,6 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
   		  tx.rollback();
   		  throw t;
   		}
-  		
-  		
   		
 		return result;
 	}
@@ -336,7 +325,6 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 		int result = 0;
 		Session session=factory.openSession();    
 
-		  // your code
 		  String hql = "FROM Patient P WHERE firstName=:fn AND firstLastName =:fln AND secondLastName=:sln";
 		  Query queryPatient = session.createQuery(hql);
 		  queryPatient.setParameter("fn", name);
@@ -349,13 +337,9 @@ public class Dao implements AppoinmentsInter, LabsInter, PatientTransactions, Im
 			  result = patient.getId();
 		  } 
 
-	
 		session.close();
 		return result;
 		
 	}
-	
-	
-	
-	
+		
 }

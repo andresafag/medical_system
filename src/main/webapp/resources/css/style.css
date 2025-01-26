@@ -393,6 +393,21 @@ appointmentdatachange {
 	background-color: rgba(250, 235, 215, 0.3);
 }
 
+.registration form{
+	margin: 4% auto auto auto;
+	padding: 2%;
+	border-radius: 4%;
+	border: 1px solid rgb(207, 207, 207);
+	background-color: rgba(250, 235, 215, 0.3);
+	text-align: center;
+	width: fit-content;
+	position: relative;
+	background-image: url("../images/pediatric.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 .form-items {
 	margin: 5px;
 }
