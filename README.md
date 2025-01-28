@@ -38,8 +38,8 @@ https://github.com/user-attachments/assets/d1cb5a66-a32d-4fa8-8a77-c272103ddf69
 
 | Name     |          |          |
 |----------|----------|----------|
-| Hibernate    | ![hibernate_icon_whitebkg](https://github.com/user-attachments/assets/42dcd2ae-576f-4b21-a27c-cb4b83d3d018)   |    |
-| MySql    | ![mysql-logo-png-image-11660514413dmpowgsypp](https://github.com/user-attachments/assets/5a045646-2aab-4f1f-94a3-28c771e6bb4d)
+| Hibernate    | ![hibernate_icon_whitebkg](https://github.com/user-attachments/assets/42dcd2ae-576f-4b21-a27c-cb4b83d3d018)   | 6.4.0   |
+| MySql    | ![mysql-logo-png-image-11660514413dmpowgsypp](https://github.com/user-attachments/assets/5a045646-2aab-4f1f-94a3-28c771e6bb4d) | 8.1.0
 
 
 
