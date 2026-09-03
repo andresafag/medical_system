@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -45,6 +46,23 @@ public class AppointmentController {
 	}
 	
 	
+	
+	@GetMapping("/update-appointment")
+	public String updateAppointmentPage(@RequestParam(value = "identifier", required = false) String identifier, Model model) {
+		model.addAttribute("identifier", identifier == null ? "" : identifier);
+		if (identifier != null && !identifier.isBlank()) {
+			try {
+				AppointmentsServices appointmentService = new AppointmentsServices();
+				java.util.Map<String, String> data = appointmentService.checkAppointment(Long.parseLong(identifier));
+				if (data != null && data.get("reason") != null) {
+					model.addAttribute("reason", data.get("reason"));
+					model.addAttribute("specialty", data.get("specialty"));
+				}
+			} catch (Exception ignored) {
+			}
+		}
+		return "updateappointment";
+	}
 	
 	//Post requests ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 	
