@@ -1,21 +1,7 @@
-<div class="footer-container">
-	<div class="vl">
-		<img src="resources/images/caduceus-symbol.png" alt="medicalsymbol" width="60" height="80" class="d-inline-block align-text-top">
-		<span>PRECIS MEDICAL</span>
-	</div>
-	
-	<div class="vl">
-		<a class="bl" href="#">Us</a>
-		<a class="bl" href="#">Afiliates</a>
-		<a class="bl" href="#">Contact us</a>
-	</div>
-	
-	
-	<div class="vl">
-		<a class="bl" href="#">Join us</a>
-		<a class="bl" href="#">Transparency law</a>
-		<a class="bl" href="#">Our mission</a>
-		<a class="bl" href="#">Our vision</a>
-	</div>
-
+<footer class="pagefoot" data-od-id="footer">
+<div class="container foot-grid">
+<div><strong style="color:var(--fg)">Precis Medical</strong><p>Atención programada, resultados claros y datos protegidos.</p><p class="req" style="margin-top:8px">Contacto: ayuda@precis.example · Lun–Vie 8:00–18:00</p></div>
+<div><p class="req">Módulos</p><p><a href="/webmedical/appointments">Citas</a><br /><a href="/webmedical/labs">Laboratorio</a><br /><a href="/webmedical/imaging">Imagen</a></p></div>
+<div><p class="req">Institución</p><p><a href="/webmedical/benefits">Beneficios</a><br /><a href="/webmedical/register-patient">Registro</a><br /><a href="#">Transparencia</a></p></div>
 </div>
+</footer>

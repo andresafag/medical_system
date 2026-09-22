@@ -1,49 +1,40 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
-<html>
+<html lang="es-ES">
 <head>
 <meta charset="UTF-8">
-<!-- Styles -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Precis Medical — Laboratorio</title>
 <link href="resources/css/style.css" rel="stylesheet">
 <link rel="icon" type="image/x-icon" href="resources/images/caduceus-symbol.png">
-<link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-<!-- Bootstrap CDN Links-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<script src="https://kit.fontawesome.com/8b8b86760e.js" crossorigin="anonymous"></script>
-<title>Labs</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div class="container-fluid">
-	<%@include file="navigation-bar.jsp"%>
-	
-	<h3 class="header spicy"> 💉 Labs 💉</h3>
-<div class="labs-box">
-
-	<div class="labinfoentry">
-
-			<form:form action="checklabs" modelAttribute="patient"> 
-				<div class="fieldContainer">
-					<form:input id="name" path="firstName" type="text" placeholder="first name" required="required"/>
-					<span class="tooltiptextName">This field should not include numbers</span>
-				</div>
-				<div class="fieldContainer">
-					<form:input id="lastName" path="firstLastName" type="text" placeholder="last name" required="required"/>
-					<span class="tooltiptextLastName">This field should not include numbers</span>
-				</div>
-				<div class="fieldContainer">
-					<form:input id ="secondLastName" path="secondLastName" type="text" placeholder="second surname" required="required" />
-					<span class="tooltiptextSecondLastName">This field should not include numbers</span>
-				</div>
-				<button type="submit" class="btn btn-info">Go!</button>
-			</form:form>
-	</div>
+<div class="container-fluid">
+<%@include file="navigation-bar.jsp"%>
+<main id="content"><div class="wrap-mid">
+<p class="crumbs"><a href="/webmedical/">Inicio</a> / Laboratorio</p>
+<section class="card" data-od-id="busqueda-laboratorio">
+<div style="display:flex;gap:16px;align-items:flex-start"><div class="icon-pill" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-9V3"/></svg></div>
+<div><p class="eyebrow">Laboratorio · POST /checklabs</p>
+<h1 style="font-size:var(--text-2xl)">Resultados de laboratorio</h1>
+<p style="color:var(--muted)">Busca con tu nombre y dos apellidos, tal como aparecen en tu registro.</p></div></div>
+<form:form action="checklabs" modelAttribute="patient" id="f">
+<div class="field" id="w1"><label for="n">Nombre</label><form:input path="firstName" id="n" cssClass="input" placeholder="Ej.: María" required="required" /><span class="field-error">Este campo no debe incluir números.</span></div>
+<div class="field" id="w2"><label for="a1">Primer apellido</label><form:input path="firstLastName" id="a1" cssClass="input" placeholder="Ej.: García" required="required" /><span class="field-error">Este campo no debe incluir números.</span></div>
+<div class="field" id="w3"><label for="a2">Segundo apellido</label><form:input path="secondLastName" id="a2" cssClass="input" placeholder="Ej.: López" required="required" /><span class="field-error">Este campo no debe incluir números.</span></div>
+<button class="btn btn-primary" style="width:100%;margin-top:20px" type="submit" data-od-id="cta-buscar-lab">Buscar resultados</button>
+<p class="field-help" style="margin-top:12px">¿Sin resultados? Verifica tildes y el orden de los apellidos.</p>
+</form:form>
+</section>
+</div></main>
+<%@include file="footer.jsp"%>
 </div>
-	<%@include file="footer.jsp"%>
-	</div>
+<script>
+function bind(id,wrap){var el=document.getElementById(id);if(!el)return;el.addEventListener('input',function(){document.getElementById(wrap).classList.toggle('invalid',/[0-9]/.test(el.value));});}
+bind('n','w1');bind('a1','w2');bind('a2','w3');
+document.getElementById('f').addEventListener('submit',function(e){var ok=true;[['n','w1'],['a1','w2'],['a2','w3']].forEach(function(p){var el=document.getElementById(p[0]);var v=el.value.trim();var bad=!v||/[0-9]/.test(v);document.getElementById(p[1]).classList.toggle('invalid',bad);if(bad)ok=false;});if(!ok)e.preventDefault();});
+</script>
 </body>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-	<script src="resources/js/labsJs.js"></script>
 </html>

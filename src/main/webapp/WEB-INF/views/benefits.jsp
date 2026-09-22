@@ -1,29 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-<meta charset="utf-8">
-<title>benefits</title>
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <!-- Styles -->
-<link rel="stylesheet" href="resources/css/style.css">
- <!-- Main Icon -->
+<html lang="es-ES">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Precis Medical — Beneficios</title>
+<link href="resources/css/style.css" rel="stylesheet">
 <link rel="icon" type="image/x-icon" href="resources/images/caduceus-symbol.png">
-<link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-<!-- Bootstrap CDN Links-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<script src="https://kit.fontawesome.com/8b8b86760e.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+.hero-b{text-align:center;padding:72px 0 32px;max-width:720px;margin:0 auto}
+.hero-b h1{font-size:var(--text-3xl);letter-spacing:var(--tracking-display)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:32px 0 48px}
+@media(max-width:920px){.grid3{grid-template-columns:1fr}}
+.cta{text-align:center;padding:32px 0 64px}
+</style>
+</head>
 <body>
-	<div class="container-fluid">
-	<%@include file="navigation-bar.jsp"%>
-
-<div class="benefits-box">
-	<div class="barlow">
-	Health care professionals' use of mobile devices is transforming clinical practice. Numerous medical software applications can now help with tasks ranging from information and time management to clinical decision-making at the point of care. The launch of a mobile app in the healthcare industry is a good solution for reducing fees for patients as many of the tasks can be performed via the app itself.Moreover, interacting with the hospital via an app, patients can see the costs in real-time. So, when they will get a final bill, it won't be an unpleasant surprise for them and their families as they have an opportunity to plan their budget in advance. IoT (or Internet of Things) is actively conquering more and more market segments. The medical segment is definitely not an exception. The IoT healthcare market is growing extremely fast and according to some estimates, the market will achieve the level of $136.8 billion already in 2021. Such an advanced technology as IoT is able to facilitate a wide range of tasks for healthcare staff, simplifying access to huge volumes of data via smart devices and equipment that, for example, can help to track patient' vital parameters in real-time.As health wearables and fitness trackers are gaining popularity, we can suppose that more serious professional devices will soon be actively gaining popularity among a wide audience as well.
-	</div>
+<div class="container-fluid">
+<%@include file="navigation-bar.jsp"%>
+<main id="content"><div class="container">
+<section class="hero-b" data-od-id="hero-beneficios">
+<p class="eyebrow">Beneficios · Por qué Precis</p>
+<h1>Tu salud, sin fricción administrativa</h1>
+<p class="lead">Menos llamadas, costes claros y resultados accesibles. Tres ventajas concretas.</p>
+</section>
+<section class="grid3" data-od-id="beneficios-lista">
+<div class="card"><h2 style="font-size:var(--text-xl);margin-bottom:8px">Acceso inmediato</h2><p style="color:var(--muted);font-size:15px">Consulta citas, laboratorio e imagen con tu ID o tus apellidos. Sin ventanillas ni horarios.</p></div>
+<div class="card"><h2 style="font-size:var(--text-xl);margin-bottom:8px">Costes transparentes</h2><p style="color:var(--muted);font-size:15px">Ve tu sede, prueba y horario antes de acudir. Sin sorpresas en la factura final.</p></div>
+<div class="card"><h2 style="font-size:var(--text-xl);margin-bottom:8px">Seguimiento continuo</h2><p style="color:var(--muted);font-size:15px">Reprograma, conserva tu historial y comparte tus estudios con tu médico.</p></div>
+</section>
+<section class="cta" data-od-id="cta-beneficios"><a class="btn btn-primary" href="/webmedical/register-patient" data-od-id="cta-registro">Registrarme ahora</a>
+<p style="color:var(--muted);font-size:14px;margin-top:12px">Toma dos minutos · Sin coste</p></section>
+</div></main>
+<%@include file="footer.jsp"%>
 </div>
-	<%@include file="footer.jsp"%>
-	</div>
-	
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </html>
